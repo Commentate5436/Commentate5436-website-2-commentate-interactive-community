@@ -1,45 +1,41 @@
-# Commentate — GitHub Pages starter
+# Commentate
 
-A neon-styled, static front-end starter for your Commentate community website. It includes:
-- Animated welcome/loading screen and first-visit update popup
-- Responsive feed with a ten-post preview and an end-of-feed message
-- Profile cards with bio, banner/avatar fields, follower/friend/following counts, tags, and optional verified badge
-- Post and comment UI, image attachments, and private-by-default timestamps
-- Music player using the two MP4 files you supplied; track owners link to their profile
+A self-hosted, Node.js-powered social feed starter built around your black/red neon concept and supplied room/music media.
 
-## Put it on GitHub Pages
-1. Create a GitHub repository named `commentate`.
-2. Upload **everything inside this folder** (keep the `assets` folder).
-3. In the repository, open **Settings → Pages**.
-4. Under Build and deployment, choose **Deploy from a branch**, select `main` and `/ (root)`, then Save.
-5. Wait for GitHub Pages to publish the site.
+## Run on Windows
 
-## Easy customization
+1. Install Node.js 18 or newer.
+2. Extract this ZIP.
+3. Open the `Commentate` folder.
+4. Copy `.env.example` to a new file named `.env`.
+5. Open a terminal in this folder and run:
 
-### Profiles
-Edit `profiles.js`. Each profile has an ID, username, handle, verified flag, bio, banner, avatar, counts, tags, and music.
-- Use `verified: true` to show `assets/verified.png`.
-- Put an image path in `avatar` or `banner`, for example `assets/neko-avatar.png`.
-- Keep IDs unique.
+   ```bash
+   npm install
+   npm start
+   ```
 
-### Posts
-Edit `posts.js`. Set `authorId` to an existing profile ID; the username and verified badge are filled in automatically.
-- `attachment: "assets/my-photo.jpg"` adds an image.
-- `music: "Love Gaze"` adds a music label.
-- `showDate: false` keeps date/time private (the starter does not display timestamps).
+6. Visit **http://localhost:3000**.
 
-### Music
-Edit the `tracks` array near the top of `app.js`. Add another `{title, src, ownerId}` entry and place its audio file in `assets/`. The supplied MP4s are already wired in.
+The initial local admin PIN is `723X`. Change `ADMIN_PIN` in `.env` before making the server reachable by anyone else. Do not upload `.env` to GitHub.
 
-## Important limitations before going public
-This is a **static demo**. New posts and comments are held in the visitor's browser memory and are not shared with other visitors or saved permanently. For a real multi-user community, connect a backend such as Supabase or Firebase and add authentication, database rules, image storage, moderation, and server-side profile permissions.
+## What is included
 
-A normal website **cannot reliably block screenshots**, detect every screenshot tool, prevent a visitor from switching browsers/tabs, or force them to stay on the site. Browsers intentionally keep those controls with the visitor and operating system. This starter therefore does not claim to enforce screenshot protection or lock the browser. It only shows a small courtesy notice when the visitor returns to the tab. Do not put an admin PIN or other secret in front-end JavaScript: anyone can inspect files delivered to their browser. If you later need admin-only actions, verify permissions on a server.
+- Animated welcome/loading screen and first-visit patch notes.
+- Responsive black/red feed with the supplied room image as a background.
+- Two starter profiles and two starter posts.
+- Newest-first feed. Visitors see the first two posts and up to two comments per post.
+- Admin PIN login unlocks the archive and owner console.
+- Owner console can publish text/image/video posts, edit profile fields, adjust post like counts, add/delete comments, and delete posts/comments.
+- Click profile names to open a profile card.
+- Draggable/resizable music player using the two supplied MP4 files (their audio tracks play; their tiny video visuals appear in the album window).
+- JSON persistence in `data/db.json`; uploaded media is stored in `uploads/`.
 
-## Files
-- `index.html` — page structure
-- `styles.css` — neon visual design and responsive layout
-- `app.js` — feed, profiles, comments, audio player, modals
-- `profiles.js` — profile data
-- `posts.js` — starter posts
-- `assets/` — your reference images and music files
+## Important architecture notes
+
+- GitHub Pages only serves static files; it cannot run this Node server or store private persistent data. For a public site, host this Node backend on a server/VPS or another Node-capable host, and point the frontend to it with a carefully configured API URL/CORS setup. This starter is configured for same-origin hosting.
+- A PC-hosted server is only reachable while the PC and server process are running. `localhost` is only accessible from that PC. Do not expose your home PC directly to the public internet without an adult/experienced administrator helping with firewall, router, TLS, backups, and security.
+- The PIN is server-checked, not placed in frontend JavaScript. The default is for local testing only.
+- This is a starter build, not a production social network: visitor accounts, real user registration, secure password recovery, moderation queues, anti-spam, and true per-user likes/follows are not implemented. Visitors are view-only; all content management is owner-only.
+- Profiles have separate stored settings and are rendered through a shared safe profile component. They do not execute arbitrary per-profile JS files; that would let profile settings run unsafe code on the site.
+- Uploaded media limit is 50 MB. Only common image/video MIME types are accepted.

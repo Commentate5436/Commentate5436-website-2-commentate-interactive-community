@@ -1,0 +1,119 @@
+{
+  "profiles": [
+    {
+      "id": "owner",
+      "userId": "10001",
+      "username": "commentate",
+      "displayName": "Commentate Owner",
+      "avatar": "",
+      "badgeImage": "",
+      "verified": true,
+      "artist": false,
+      "musicName": "",
+      "bio": "Welcome to Commentate.",
+      "followers": 128,
+      "following": 42,
+      "theme": "red"
+    },
+    {
+      "id": "nova",
+      "userId": "10002",
+      "username": "nova",
+      "displayName": "Nova",
+      "avatar": "",
+      "badgeImage": "",
+      "verified": true,
+      "artist": true,
+      "musicName": "Love Gaze",
+      "bio": "Late night thoughts and neon skies.",
+      "followers": 86,
+      "following": 31,
+      "theme": "violet"
+    },
+    {
+      "id": "echo",
+      "userId": "10003",
+      "username": "echo",
+      "displayName": "Echo",
+      "avatar": "",
+      "badgeImage": "",
+      "verified": false,
+      "artist": false,
+      "musicName": "",
+      "bio": "Just passing through.",
+      "followers": 54,
+      "following": 19,
+      "theme": "red"
+    }
+  ],
+  "posts": [
+    {
+      "id": "post-welcome",
+      "profileId": "owner",
+      "text": "Welcome to Commentate. A place for posts, conversations, and late-night creativity.",
+      "media": "",
+      "mediaType": "",
+      "likes": 12,
+      "reactions": {
+        "\u2728": 5,
+        "\u2764\ufe0f": 3
+      },
+      "createdAt": 1760000000000,
+      "comments": [
+        {
+          "id": "c-welcome-1",
+          "profileId": "nova",
+          "text": "The neon look is everything.",
+          "likes": 3,
+          "reactions": {
+            "\u2728": 2
+          },
+          "replies": [
+            {
+              "id": "r-welcome-1",
+              "profileId": "owner",
+              "text": "Glad you're here!",
+              "likes": 1
+            }
+          ],
+          "createdAt": 1760000001000
+        },
+        {
+          "id": "c-welcome-2",
+          "profileId": "echo",
+          "text": "Ready to explore.",
+          "likes": 1,
+          "reactions": {},
+          "replies": [],
+          "createdAt": 1760000002000
+        }
+      ]
+    },
+    {
+      "id": "post-night",
+      "profileId": "nova",
+      "text": "A little music, a little midnight, and a whole lot of blue light.",
+      "media": "",
+      "mediaType": "",
+      "likes": 8,
+      "reactions": {
+        "\ud83c\udf19": 4,
+        "\ud83d\udc99": 2
+      },
+      "createdAt": 1760000003000,
+      "comments": [
+        {
+          "id": "c-night-1",
+          "profileId": "echo",
+          "text": "This vibe is perfect.",
+          "likes": 2,
+          "reactions": {
+            "\ud83d\udc99": 1
+          },
+          "replies": [],
+          "createdAt": 1760000004000
+        }
+      ]
+    }
+  ]
+}
