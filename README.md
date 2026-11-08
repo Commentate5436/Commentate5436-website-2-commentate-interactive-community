@@ -1,27 +1,41 @@
 # Commentate for GitHub
 
-A self-contained, script-controlled neon community feed prototype.
+A self-contained, script-controlled neon community feed prototype. The visual design is intentionally kept as-is.
 
 ## Run it
 Because the site uses JavaScript modules, open this folder with a local static server:
-- Python: `python -m http.server 8000`
+- `python -m http.server 8000`
 - Then visit `http://localhost:8000`
 
-## Control the content in code
-- `data/content.js`: seed posts, comments, reactions, and feed limits.
-- `profiles/owner.js`, `profiles/guest.js`: each profile's identity, badge, artist metadata, permissions and limits. Duplicate a profile file and import it in `app.js` to add another profile.
-- `app.js`: front-end behavior and music player.
+## Easy customization
 
-## Admin key
-The demo admin pin is `723X`. This is intentionally a front-end prototype: the key and all content are shipped to the browser. It is NOT secure authentication and does not protect data from a visitor who inspects source code. For a public GitHub Pages deployment, add a backend (for example Supabase/Firebase with server-side authorization) before allowing real users to post, edit, follow or moderate.
+### Accounts — one file per account
+Edit `profiles/owner.js` or `profiles/guest.js`. Each file has clearly separated sections for identity, avatar, profile background, badge, music/artist details, permissions, and limits. To add an account, duplicate a profile file, edit its values, then add its import and profile entry near the top of `app.js`.
 
-## Current behavior
-- Loading animation, update-log popup, black/red neon UI and supplied room background.
-- Two starter posts and two starter comments per post.
-- Newest-first feed, likes, emoji reactions, comment likes and admin edit/delete controls.
-- Admin pin unlocks post creation, comments and older feed items.
-- Profile cards with badge, ID, artist metadata and copyable profile ID.
-- Draggable/resizable music player using the two supplied MP4 files.
-- Post editor accepts an image OR video path/URL.
+- `profileBackground`: optional image URL or path, such as `assets/my-profile-bg.jpg`.
+- `badge` and `badgeImage`: badge text and icon shown beside the account name and on its comments. Set `badge: ""` to hide it.
+- `musicName`: the artist / music owner label used by the music player.
 
-Changes made in the quick editor exist in the current browser session only. To make them permanent, edit `data/content.js` / profile scripts and reload. This keeps the project script-driven as requested.
+### Posts — each post has its own settings
+Edit `data/content.js`. Each post contains its own text, media, reactions, comments, and a `settings` section:
+- `visibleComments`: number of comments shown to spectators.
+- `commentsEnabled`: set to `false` to turn comments off for that post.
+- `reactionsEnabled`: reserved per-post switch for post reactions.
+
+Each comment has its own `profileId`, text, optional image, and `reactions` object. The comment reaction chips are controlled globally by `settings.commentReactionChoices`.
+
+### General feed settings
+At the bottom of `data/content.js`, change the default feed limits, admin PIN, site name, and available comment reaction emojis.
+
+## Spectator and admin access
+- Visitors have no account and are spectators: they can view the feed and profiles but cannot post or comment.
+- The People navigation option is locked until admin access is unlocked.
+- Admin PIN: `723X`.
+
+## Important security note
+This is a front-end prototype. The PIN and content are shipped to the browser, so this is not secure authentication. For a public GitHub Pages deployment, use a backend (for example Supabase/Firebase) with server-side authorization before allowing real users to post, edit, follow, or moderate.
+
+## Music
+The music owner / artist name comes from `profiles/owner.js` (`musicName`). Track files and titles are listed in `app.js` in the `tracks` array.
+
+Edits made in the quick post editor only last for the current browser session. To make content permanent, edit `data/content.js` or the profile files and reload.

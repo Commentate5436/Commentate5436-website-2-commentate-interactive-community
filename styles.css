@@ -4,3 +4,8 @@
 @media(max-width:1050px){.layout{grid-template-columns:190px minmax(0,1fr)}.rightbar{display:none}}@media(max-width:700px){.topbar{padding:0 14px}.live-dot{display:none}.layout{display:block;margin:18px auto;padding:0 12px}.sidebar{display:none}.welcome h1{font-size:26px}.music-player{right:12px;bottom:12px;width:245px}.post{padding:14px}}
 
 body:after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#08080de8,#09090dc9),url('assets/room-background.png') center/cover fixed;opacity:.35}
+/* Comment emoji reactions: compact, soft chips that match the existing feed UI. */
+.comment-actions{align-items:center;flex-wrap:wrap;gap:5px;margin-top:7px}
+.comment-react,.comment-react-count{background:#211820;border:1px solid #3c2935;color:#e8cbd5;border-radius:14px;padding:3px 7px;font-size:11px;line-height:1.2}
+.comment-react:hover,.comment-react-count:hover{border-color:#a94360;background:#351824}
+.comment-edit{background:transparent;color:#9e8d99;font-size:9px;padding:3px 5px}

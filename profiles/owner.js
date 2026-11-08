@@ -1,8 +1,26 @@
-// Profile-specific configuration and identity. Edit this file to customize the owner.
+// OWNER PROFILE — edit the values in this file to customize this account.
 export default {
-  id: "owner", username: "darkharbert", displayName: "Dark Harbert",
-  badge: "OWNER", badgeImage: "✦", avatar: "assets/avatar-owner.svg",
-  bio: "Building a little corner of the internet.", verified: true,
-  artist: true, musicName: "Commentate Radio", followers: 128,
-  canPost: true, canEditOwn: true, maxPosts: 10, maxComments: 10
+  // Identity
+  id: "owner",
+  username: "darkharbert",
+  displayName: "Dark Harbert",
+  avatar: "assets/avatar-owner.svg",
+  profileBackground: "", // Optional image URL/path shown behind the profile card.
+  bio: "Building a little corner of the internet.",
+
+  // Name badge (set badge to "" to hide it)
+  badge: "OWNER",
+  badgeImage: "✦",
+  verified: true,
+
+  // Music / artist details
+  artist: true,
+  musicName: "Commentate Radio",
+
+  // Account permissions and limits
+  canPost: true,
+  canEditOwn: true,
+  maxPosts: 10,
+  maxComments: 10,
+  followers: 128
 };

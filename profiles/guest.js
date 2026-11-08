@@ -1,8 +1,26 @@
-// Example community profile. Duplicate this file to add another profile.
+// GUEST PROFILE — duplicate this file to create another account.
 export default {
-  id: "guest", username: "midnight.wav", displayName: "midnight",
-  badge: "MEMBER", badgeImage: "✧", avatar: "assets/avatar-guest.svg",
-  bio: "Collecting little moments.", verified: false,
-  artist: false, musicName: "", followers: 42,
-  canPost: false, canEditOwn: false, maxPosts: 10, maxComments: 10
+  // Identity
+  id: "guest",
+  username: "MoringShedding_grey",
+  displayName: "Morning",
+  avatar: "assets/orange-pfp-pinterest-6-1.jpg.webp",
+  profileBackground: "assets/thumb-1920-1058375.jpg", // Optional image URL/path shown behind the profile card.
+  bio: "Collecting little moments.",
+
+  // Name badge (set badge to "" to hide it)
+  badge: "Co-Worker",
+  badgeImage: "assets/5575152.webp",
+  verified: true,
+
+  // Music / artist details
+  artist: true,
+  musicName: "Loze gaze.",
+
+  // Account permissions and limits
+  canPost: true,
+  canEditOwn: false,
+  maxPosts: 10,
+  maxComments: 10,
+  followers: 934890
 };
