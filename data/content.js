@@ -2,6 +2,38 @@
 // Put newest posts first. Use an image/video path inside assets/ or leave it blank.
 export const posts = [
   {
+    id: "p3",
+    profileId: "vamper",
+    text: "Anyone ready for the Christmas event? I'm sure am fr.",
+    date: "2026-11-09T15:40:00",
+    image: "assets/Vamper_post.gif",
+    video: "",
+    likes: 5900000,
+    reactions: { "❤️": 5900000, "⭐": 12000, "🎄": 245000 },
+    settings: { visibleComments: 20, commentsEnabled: true, reactionsEnabled: true },
+    comments: [
+      { id: "c31", profileId: "tades", text: "HELLLLLLLLLLLLLLLLL YUHHHHH", image: "", likes: 492000, reactions: { "🔥": 230000, "❤️": 110000, "😂": 74000 } },
+      { id: "c32", profileId: "kuya", text: "Its fucking cooked.", image: "", likes: 287000, reactions: { "💀": 140000, "😂": 97000, "🔥": 50000 } },
+      { id: "c33", profileId: "tades", text: "We should lowkey go to hazel event this year if my ass can even make it but if we dead ass could go would be bad bitch", image: "", likes: 713000, reactions: { "❤️": 310000, "🔥": 240000, "✨": 163000 } },
+      { id: "c34", profileId: "kuya", text: "Nawhhhhh sis nawhhhhhhh", image: "", likes: 184000, reactions: { "😂": 99000, "❤️": 54000, "💀": 31000 } },
+      { id: "c35", profileId: "tades", text: "pussy alert pusssssssyyy alert", image: "", likes: 356000, reactions: { "😂": 205000, "💀": 99000, "🔥": 52000 } },
+      { id: "c36", profileId: "vamper", text: "If ya'll end up going can ya'll get me one of those drinks ya'll were talking about I'll chuck the fuck off it", image: "", likes: 668000, reactions: { "😂": 300000, "❤️": 210000, "🔥": 158000 } },
+      { id: "c37", profileId: "kuya", text: "i got you fs", image: "", likes: 121000, reactions: { "❤️": 78000, "✨": 27000, "🙌": 16000 } },
+      { id: "c38", profileId: "kuya", text: "OKAY heart my message if i should go with the gang to do something massive or put a star if i should", image: "", likes: 5900000, reactions: { "❤️": 5900000, "⭐": 18500, "😂": 320000 } },
+      { id: "c39", profileId: "kuya", text: "where in here Wtf.", image: "", likes: 224000, reactions: { "😂": 131000, "👀": 62000, "💀": 31000 } },
+      { id: "c40", profileId: "pezpez", text: "LOLLLLLLLLLLLLLLLLLLLL", image: "", likes: 475000, reactions: { "😂": 300000, "💀": 105000, "❤️": 70000 } },
+      { id: "c41", profileId: "kuya", text: "THAT SHIT AINT FUNNY", image: "", likes: 318000, reactions: { "😂": 174000, "😭": 94000, "❤️": 50000 } },
+      { id: "c42", profileId: "tozi", text: "LMAOOIOOO", image: "", likes: 405000, reactions: { "😂": 260000, "💀": 95000, "🔥": 50000 } },
+      { id: "c43", profileId: "vamper", text: "LOLLL", image: "", likes: 263000, reactions: { "😂": 155000, "❤️": 68000, "💀": 40000 } },
+      { id: "c44", profileId: "kuya", text: "ya'll are wrong for that shit Ima cry", image: "", likes: 392000, reactions: { "😭": 200000, "😂": 124000, "❤️": 68000 } },
+      { id: "c45", profileId: "pezpez", text: "Yo is your ex traumatized for even heading there n shit? when he had to do the forbidden challenge", image: "", likes: 519000, reactions: { "😳": 230000, "😂": 175000, "👀": 114000 } },
+      { id: "c46", profileId: "kuya", text: "yo final challenge.", image: "", likes: 306000, reactions: { "💀": 153000, "😂": 99000, "🔥": 54000 } },
+      { id: "c47", profileId: "kuya", text: "let yo friend crack", image: "", likes: 207000, reactions: { "😂": 112000, "👀": 61000, "💀": 34000 } },
+      { id: "c48", profileId: "pezpez", text: "YOOOOOOOOO THATS FUCKKED", image: "", likes: 643000, reactions: { "😳": 285000, "😂": 220000, "💀": 138000 } },
+      { id: "c49", profileId: "kuya", text: "LOLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL", image: "", likes: 582000, reactions: { "😂": 340000, "💀": 160000, "😭": 82000 } }
+    ]
+  },
+  {
     id: "p2",
     profileId: "viewer",
     text: `Welcome to Commentate.
@@ -13,6 +45,7 @@ Here's some things you need to know while you visit the website
 You can't post or talk: This website is souly for memebers who using this website daily. If you somehow is able to make a post or a comment. it will delete the secound you refrsh
 
 You can view the people who's Online: Simpley click on people right Under home feed.
+
 
 `,
     date: "2026-11-08T14:00:00",
@@ -56,5 +89,5 @@ export const settings = {
   peopleRequiresAdmin: false,
 
   siteName: "Commentate",
-  commentReactionChoices: ["❤️", "😂", "🔥", "✨", "🖤", "😭","🥹"]
+  commentReactionChoices: ["❤️", "😂", "🔥", "✨", "🖤", "😭", "🥹", "💀", "😳", "👏", "🙌", "🫡", "🤯", "😈", "👀", "🎄", "⭐", "GGWP", "LOL", "W", "L", "FR", "YUH"]
 };

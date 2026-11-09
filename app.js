@@ -6,11 +6,12 @@ import tades from "./profiles/tades.js";
 import tozi from "./profiles/tozi.js";
 import deserve from "./profiles/Deserve.js";
 import kuya from "./profiles/Kuya.js";
+import vamper from "./profiles/vamper.js";
 
 
 import {posts as seedPosts, settings} from "./data/content.js";
 
-const profiles = [viewer, morning, pezpez, tades, tozi, deserve, kuya];
+const profiles = [viewer, morning, pezpez, tades, tozi, deserve, kuya, vamper];
 // The music player and admin comment composer use the site owner profile.
 // viewer.js is the configured owner profile for this build.
 const owner = viewer;
