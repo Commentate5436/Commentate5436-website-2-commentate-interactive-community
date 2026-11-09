@@ -9,3 +9,13 @@ body:after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;back
 .comment-react,.comment-react-count{background:#211820;border:1px solid #3c2935;color:#e8cbd5;border-radius:14px;padding:3px 7px;font-size:11px;line-height:1.2}
 .comment-react:hover,.comment-react-count:hover{border-color:#a94360;background:#351824}
 .comment-edit{background:transparent;color:#9e8d99;font-size:9px;padding:3px 5px}
+
+/* Blue-and-white glowing update notice; leaves the existing layout untouched. */
+.update-notice-backdrop{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:20px;background:rgba(3,7,18,.78);backdrop-filter:blur(10px)}
+.update-notice{width:min(480px,100%);padding:30px;border:1px solid rgba(142,205,255,.8);border-radius:18px;background:linear-gradient(145deg,#101d31,#0b101d 70%);color:#f4faff;text-align:center;box-shadow:0 0 18px rgba(76,170,255,.55),0 0 65px rgba(70,150,255,.28),inset 0 0 24px rgba(120,190,255,.08)}
+.update-notice-kicker{font:10px 'DM Mono',monospace;letter-spacing:2px;color:#9bd5ff}
+.update-notice h2{margin:13px 0 10px;font-size:clamp(22px,5vw,30px);letter-spacing:.5px;text-shadow:0 0 10px rgba(126,196,255,.85)}
+.update-notice p{max-width:370px;margin:0 auto;color:#d6eaff;font-size:13px;line-height:1.7}
+.update-notice-version{margin:17px 0;color:#91caff;font:10px 'DM Mono',monospace;letter-spacing:1px}
+.update-refresh-button{padding:12px 20px;border:1px solid #c5e7ff;border-radius:9px;background:linear-gradient(135deg,#eaf7ff,#8ecbff);color:#071426;font-weight:800;font-size:11px;letter-spacing:1px;box-shadow:0 0 15px rgba(116,190,255,.65);cursor:pointer}
+.update-refresh-button:hover{box-shadow:0 0 25px rgba(116,190,255,.95);transform:translateY(-1px)}

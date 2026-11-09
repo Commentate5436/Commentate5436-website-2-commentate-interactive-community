@@ -39,3 +39,12 @@ This is a front-end prototype. The PIN and content are shipped to the browser, s
 The music owner / artist name comes from `profiles/owner.js` (`musicName`). Track files and titles are listed in `app.js` in the `tracks` array.
 
 Edits made in the quick post editor only last for the current browser session. To make content permanent, edit `data/content.js` or the profile files and reload.
+
+
+## Publishing an update notice
+Whenever you publish a new website update, change the `version` value in
+`version.json` (for example, from `1.0.1` to `1.0.2`) before committing to GitHub.
+Visitors who already have Commentate open are checked every 60 seconds and see
+the blue-and-white update notice when the version changes. They can click
+**REFRESH WEBSITE** to load the newest version. The website never forces a
+refresh without their consent.

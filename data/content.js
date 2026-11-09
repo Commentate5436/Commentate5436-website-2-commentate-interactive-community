@@ -15,7 +15,7 @@ You can't post or talk: This website is souly for memebers who using this websit
 You can view the people who's Online: Simpley click on people right Under home feed.
 
 `,
-    date: "",
+    date: "2026-11-08T14:00:00",
     image: "",
     video: "",
     likes: 32,
@@ -30,16 +30,16 @@ You can view the people who's Online: Simpley click on people right Under home f
     id: "p1",
     profileId: "morning",
     text: "Im done with music chat ✦",
-    date: "",
+    date: "2026-11-07T22:30:00",
     image: "memes/ight.gif",
     video: "",
-    likes: "18,009",
-    reactions: { "🖤": " 8,000,000,000", "✨": 8890 },
+    likes: 18009,
+    reactions: { "🖤": 8000000000, "✨": 8890 },
     // Settings for THIS post only
     settings: { visibleComments: 2, commentsEnabled: true, reactionsEnabled: true },
     comments: [
     { id: "c21", profileId: "pezpez", text: "Call mee an asshole if you will but aint noone told you to retire ISTG, if you do Ima psoing up like this", image: "memes/AHHHHHHHH..gif", likes: 980, reactions: { "🌙": 2 } },
-    { id: "c21", profileId: "morning", text: "I''m quitng, Just becuase of that absue", image: "", likes: 1345, reactions: { "🌙": 10000 } },
+    { id: "c22", profileId: "morning", text: "I''m quitng, Just becuase of that absue", image: "", likes: 1345, reactions: { "🌙": 10000 } },
     ]
   }
 ];
@@ -54,5 +54,5 @@ export const settings = {
   peopleRequiresAdmin: false,
 
   siteName: "Commentate",
-  commentReactionChoices: ["❤️", "😂", "🔥", "✨", "🖤", "😭","Ban this nigga"]
+  commentReactionChoices: ["❤️", "😂", "🔥", "✨", "🖤", "😭","🥹"]
 };
