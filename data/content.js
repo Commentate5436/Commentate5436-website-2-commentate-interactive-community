@@ -80,7 +80,7 @@ You can view the people who's Online: Simpley click on people right Under home f
 ];
 
 export const settings = {
-  initialVisiblePosts: 2,
+  initialVisiblePosts: 9,
   initialVisibleComments: 2,
   feedLimit: 10,
 
