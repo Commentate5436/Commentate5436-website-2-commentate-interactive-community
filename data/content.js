@@ -41,7 +41,7 @@ You can view the people who's Online: Simpley click on people right Under home f
     { id: "c21", profileId: "pezpez", text: "Call me an asshole if you will. but. aint noone told you to retire. ISTG, if you do Ima psoing up like this", image: "memes/AHHHHHHHH..gif", likes: 980, reactions: { "🌙": 2 } },
     { id: "c22", profileId: "morning", text: "I''m quitng, Just becuase of that absue", image: "", likes: 1345, reactions: { "🌙": 10000 } },
     { id: "c23", profileId: "pezpez", text: "Kuya say this shit wasn't you when you heard chunky at youre door step calling you daddy", image: "memes/Screenshot 2026-11-08 203439.png", likes: "1.9M", reactions: { "😂": "9.8K" } },
-    { id: "c24", profileId: "kuya", text: "LOLL", image: "", likes: "2.2M", reactions: { "🌙": 0 } },
+    { id: "c24", profileId: "kuya", text: "LOLL", image: "", likes: "2.2M", reactions: { "🌙": 0 } }
     ]
   }
 ];
