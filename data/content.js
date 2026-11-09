@@ -3,7 +3,7 @@
 export const posts = [
   {
     id: "p2",
-    profileId: "owner",
+    profileId: "viewer",
     text: `Welcome to Commentate.
 
 A place to post your thoughts,
