@@ -19,7 +19,7 @@ export default {
 
   // Account permissions and limits
   canPost: true,
-  canEditOwn: false,
+  canEditOwn: true,
   maxPosts: 10,
   maxComments: 10,
   followers: 0

@@ -26,9 +26,9 @@ export const posts = [
       { id: "c42", profileId: "tozi", text: "LMAOOIOOO", image: "", likes: 405000, reactions: { "😂": 260000, "💀": 95000, "🔥": 50000 } },
       { id: "c43", profileId: "vamper", text: "LOLLL", image: "", likes: 263000, reactions: { "😂": 155000, "❤️": 68000, "💀": 40000 } },
       { id: "c44", profileId: "kuya", text: "ya'll are wrong for that shit Ima cry", image: "", likes: 392000, reactions: { "😭": 200000, "😂": 124000, "❤️": 68000 } },
-      { id: "c45", profileId: "pezpez", text: "Yo is your ex traumatized for even heading there n shit? when he had to do the forbidden challenge", image: "", likes: 519000, reactions: { "😳": 230000, "😂": 175000, "👀": 114000 } },
-      { id: "c46", profileId: "kuya", text: "yo final challenge.", image: "", likes: 306000, reactions: { "💀": 153000, "😂": 99000, "🔥": 54000 } },
-      { id: "c47", profileId: "kuya", text: "let yo friend crack", image: "", likes: 207000, reactions: { "😂": 112000, "👀": 61000, "💀": 34000 } },
+      { id: "c45", profileId: "pezpez", text: "Yo is ex traumatized for even heading there n shit? when he had to do the forbidden challenge", image: "", likes: 519000, reactions: { "😳": 230000, "😂": 175000, "👀": 114000 } },
+      { id: "c46", profileId: "kuya", text: "yo final challenge.", image: "memes/youre-final-challenge.png", likes: 306000, reactions: { "💀": 153000, "😂": 99000, "🔥": 54000 } },
+      { id: "c47", profileId: "kuya", text: "let yo friend crack", image: "", likes: 207000, reactions: { "👀": 112000, "👀": 61000, "💀": 34000 } },
       { id: "c48", profileId: "pezpez", text: "YOOOOOOOOO THATS FUCKKED", image: "", likes: 643000, reactions: { "😳": 285000, "😂": 220000, "💀": 138000 } },
       { id: "c49", profileId: "kuya", text: "LOLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL", image: "", likes: 582000, reactions: { "😂": 340000, "💀": 160000, "😭": 82000 } }
     ]
