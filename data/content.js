@@ -23,7 +23,7 @@ You can view the people who's Online: Simpley click on people right Under home f
     // Settings for THIS post only  
     settings: { visibleComments: 2, commentsEnabled: true, reactionsEnabled: true },
     comments: [
-      { id: "c11", profileId: "morning", text: "this looks so cool already ✨", image: "", likes: 5, reactions: { "🖤": 2 } },
+      { id: "c11", profileId: "morning", text: "this looks so cool already ✨", image: "", likes: 5, reactions: { "🖤": 2 } }
     ]
   },
   {
