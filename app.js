@@ -3,14 +3,14 @@ import morning from "./profiles/morning.js";
 import pezpez from "./profiles/pezpez.js";
 
 import tades from "./profiles/tades.js";
-import tozi from "./profiles/namehere.js";
+import tozi from "./profiles/tozi.js";
 import deserve from "./profiles/Deserve.js";
 import kuya from "./profiles/Kuya.js";
 
 
 import {posts as seedPosts, settings} from "./data/content.js";
 
-const profiles = [viewer, morning, pezpez, tade, tozi, deserve, kuya, tades];
+const profiles = [viewer, morning, pezpez, tades, tozi, deserve, kuya];
 // The music player and admin comment composer use the site owner profile.
 // viewer.js is the configured owner profile for this build.
 const owner = viewer;
