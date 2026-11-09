@@ -10,7 +10,7 @@ export default {
 
   // Name badge (set badge to "" to hide it)
   badge: "Co-Worker",
-  badgeImage: "assets/5575152.webp",
+  badgeImage: "",
   verified: true,
 
   // Music / artist details
