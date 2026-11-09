@@ -1,7 +1,7 @@
 // GUEST PROFILE — duplicate this file to create another account.
 export default {
   // Identity
-  id: "guest",
+  id: "morning",
   username: "MoringShedding_grey",
   displayName: "Morning",
   avatar: "assets/orange-pfp-pinterest-6-1.jpg.webp",

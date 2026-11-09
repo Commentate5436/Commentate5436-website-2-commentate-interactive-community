@@ -3,25 +3,19 @@
 export const posts = [
   {
     id: "p2",
-    profileId: "guest",
-    text: "late night thoughts hit different when the whole city is asleep. ✦",
-    date: "2026-11-08T02:14:00",
-    image: "",
-    video: "",
-    likes: 18,
-    reactions: { "🖤": 7, "✨": 4 },
-    // Settings for THIS post only
-    settings: { visibleComments: 2, commentsEnabled: true, reactionsEnabled: true },
-    comments: [
-      { id: "c21", profileId: "owner", text: "the quiet hours always have the best ideas.", image: "", likes: 3, reactions: { "🌙": 2 } },
-      { id: "c22", profileId: "guest", text: "exactly that.", image: "", likes: 1, reactions: {} }
-    ]
-  },
-  {
-    id: "p1",
     profileId: "owner",
-    text: "Welcome to Commentate. A place to post your thoughts, share media, and make some noise. ❤️‍🔥",
-    date: "2026-11-07T22:30:00",
+    text: `Welcome to Commentate.
+
+A place to post your thoughts,
+share media, and make some noise. ❤️‍🔥
+Here's some things you need to know while you visit the website
+
+You can't post or talk: This website is souly for memebers who using this website daily. If you somehow is able to make a post or a comment. it will delete the secound you refrsh
+
+You can view the people who's Online: Simpley click on people right Under home feed.
+
+`,
+    date: "",
     image: "",
     video: "",
     likes: 32,
@@ -29,18 +23,36 @@ export const posts = [
     // Settings for THIS post only
     settings: { visibleComments: 2, commentsEnabled: true, reactionsEnabled: true },
     comments: [
-      { id: "c11", profileId: "guest", text: "this looks so cool already ✨", image: "", likes: 5, reactions: { "🖤": 2 } },
-      { id: "c12", profileId: "owner", text: "we're just getting started.", image: "", likes: 2, reactions: {} }
+      { id: "c11", profileId: "morning", text: "this looks so cool already ✨", image: "", likes: 5, reactions: { "🖤": 2 } },
+    ]
+  },
+  {
+    id: "p1",
+    profileId: "morning",
+    text: "Im done with music chat ✦",
+    date: "",
+    image: "memes/ight.gif",
+    video: "",
+    likes: "18,009",
+    reactions: { "🖤": " 8,000,000,000", "✨": 8890 },
+    // Settings for THIS post only
+    settings: { visibleComments: 2, commentsEnabled: true, reactionsEnabled: true },
+    comments: [
+    { id: "c21", profileId: "pezpez", text: "Call mee an asshole if you will but aint noone told you to retire ISTG, if you do Ima psoing up like this", image: "memes/AHHHHHHHH..gif", likes: 980, reactions: { "🌙": 2 } },
+    { id: "c21", profileId: "morning", text: "I''m quitng, Just becuase of that absue", image: "", likes: 1345, reactions: { "🌙": 10000 } },
     ]
   }
 ];
 
-// GENERAL FEED SETTINGS — individual post settings above override these defaults.
 export const settings = {
   initialVisiblePosts: 2,
   initialVisibleComments: 2,
   feedLimit: 10,
+
   adminPin: "723X",
+
+  peopleRequiresAdmin: false,
+
   siteName: "Commentate",
-  commentReactionChoices: ["❤️", "😂", "🔥", "✨", "🖤", "😭"]
+  commentReactionChoices: ["❤️", "😂", "🔥", "✨", "🖤", "😭","Ban this nigga"]
 };

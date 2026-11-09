@@ -1,13 +1,32 @@
-import owner from "./profiles/owner.js";
-import guest from "./profiles/guest.js";
+import viewer from "./profiles/viewer.js";
+import morning from "./profiles/morning.js";
+import pezpez from "./profiles/pezpez.js";
 import {posts as seedPosts, settings} from "./data/content.js";
 
-const profiles = [owner, guest];
+const profiles = [viewer, morning, pezpez];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let posts = structuredClone(seedPosts);
 let admin = false, visiblePosts = settings.initialVisiblePosts;
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const profile = id => profiles.find(p=>p.id===id) || guest;
+const profile = id => profiles.find(p=>p.id===id) || morning;
 const avatar = p => `<img class="avatar" src="${esc(p.avatar)}" alt="">`;
 const badge = p => `<span class="badge">${esc(p.badgeImage||"✦")} ${esc(p.badge)}${p.verified?' <span class="verified">✓</span>':''}</span>`;
 function timeAgo(d){let n=Math.max(0,Math.floor((Date.now()-new Date(d).getTime())/60000));return n<1?"just now":n<60?`${n}m ago`:n<1440?`${Math.floor(n/60)}h ago`:`${Math.floor(n/1440)}d ago`}
@@ -38,8 +57,26 @@ function postEditor(post=null){if(!admin)return askPin();let p=post||{text:"",im
 function commentEditor(postId){if(!admin)return askPin();let inp=$("#comment-"+CSS.escape(postId));let text=inp?.value.trim();if(!text)return toast("Write a comment first.");let post=posts.find(p=>p.id===postId);post.comments.unshift({id:"c"+Date.now(),profileId:"owner",text,image:"",likes:0,reactions:{}});render();toast("Comment added.");}
 function profileModal(id){let p=profile(id);modal(`<div class="profile-hero" ${p.profileBackground?`style="background-image:linear-gradient(#100d14bb,#100d14dd),url('${esc(p.profileBackground)}');background-size:cover;background-position:center;padding:14px;border-radius:12px"`:""}>${avatar(p)}<div><h2>${esc(p.displayName)} ${p.verified?'<span class="verified">✓</span>':''}</h2><p>@${esc(p.username)} ${badge(p)}</p></div></div>`,`<p>${esc(p.bio)}</p><div class="profile-stats"><span><b>${p.followers}</b> FOLLOWERS</span><span><b>${posts.filter(x=>x.profileId===p.id).length}</b> POSTS</span><span><b>${p.artist?"ARTIST":"MEMBER"}</b></span></div><p>${p.artist?`♫ ${esc(p.musicName)}`:"Not listed as an artist."}</p><p>Profile ID: <code>${esc(p.id)}</code></p>`,`<div class="modal-actions"><button class="secondary-btn" id="copyProfile">COPY PROFILE ID</button><button class="primary-btn" id="closeProfile">CLOSE</button></div>`);$("#closeProfile").onclick=closeModal;$("#copyProfile").onclick=()=>{navigator.clipboard?.writeText(p.id);toast("Profile ID copied.")};}
 $("#adminBtn").onclick=askPin;$("#gateUnlock").onclick=askPin;$("#openUpdates").onclick=()=>modal("WHAT'S NEW — COMMENTATE",`<p><b>01 / The feed is alive.</b><br>Newest posts appear first. The public view starts with two posts.</p><p><b>02 / Community profiles.</b><br>Tap a username or avatar to open a profile card.</p><p><b>03 / Admin controls.</b><br>Use the admin key to unlock older posts, create posts and add comments.</p><p><b>04 / Music corner.</b><br>Drag the player by its title bar and resize from the bottom-right corner.</p>`,`<div class="modal-actions"><button class="primary-btn" id="closeProfile">LET'S GO</button></div>`);$("#modalRoot").addEventListener("click",e=>{if(e.target.id==="closeProfile")closeModal()});
-$("#peopleNav").onclick=()=>{if(!admin){askPin();return;}modal("PEOPLE",profiles.map(p=>`<p><button class="action" data-profile="${p.id}">${esc(p.displayName)} · @${esc(p.username)} ${p.verified?"✓":""}</button></p>`).join(""),`<div class="modal-actions"><button class="primary-btn" id="closeProfile">CLOSE</button></div>`);};
-$("#myProfileMini").innerHTML=`${avatar(owner)}<span><b>${esc(owner.displayName)}</b><small style="display:block;color:#928792">@${esc(owner.username)}</small></span>`;
+$("#peopleNav").onclick=()=>{
+  if(settings.peopleRequiresAdmin && !admin){
+    askPin();
+    return;
+  }
+
+  modal("PEOPLE",
+    profiles.map(p=>`
+      <p>
+        <button class="action" data-profile="${esc(p.id)}">
+          ${esc(p.displayName)} · @${esc(p.username)}
+          ${p.verified ? "✓" : ""}
+        </button>
+      </p>
+    `).join(""),
+    `<div class="modal-actions">
+      <button class="primary-btn" id="closeProfile">CLOSE</button>
+    </div>`
+  );
+};
 document.body.addEventListener("click",e=>{
  let el=e.target.closest("[data-profile]");if(el){profileModal(el.dataset.profile);return}
  el=e.target.closest("[data-like]");if(el){let p=posts.find(x=>x.id===el.dataset.like);p.liked=!p.liked;p.likes=Math.max(0,(p.likes||0)+(p.liked?1:-1));render();return}
