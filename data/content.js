@@ -36,7 +36,7 @@ You can view the people who's Online: Simpley click on people right Under home f
     likes: 18009,
     reactions: { "🖤": 8000000000, "✨": 8890 },
     // Settings for THIS post only
-    settings: { visibleComments: 2, commentsEnabled: true, reactionsEnabled: true },
+    settings: { visibleComments: 4, commentsEnabled: true, reactionsEnabled: true },
     comments: [
     { id: "c21", profileId: "pezpez", text: "Call me an asshole if you will. but. aint noone told you to retire. ISTG, if you do Ima psoing up like this", image: "memes/AHHHHHHHH..gif", likes: 980, reactions: { "🌙": 2 } },
     { id: "c22", profileId: "morning", text: "I''m quitng, Just becuase of that absue", image: "", likes: 1345, reactions: { "🌙": 10000 } },
