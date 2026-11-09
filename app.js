@@ -4,6 +4,9 @@ import pezpez from "./profiles/pezpez.js";
 import {posts as seedPosts, settings} from "./data/content.js";
 
 const profiles = [viewer, morning, pezpez];
+// The music player and admin comment composer use the site owner profile.
+// viewer.js is the configured owner profile for this build.
+const owner = viewer;
 
 
 
