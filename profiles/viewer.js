@@ -6,7 +6,7 @@ export default {
   displayName: "viewer",
   avatar: "assets/Viewer.png",
   profileBackground: "", // Optional image URL/path shown behind the profile card.
-  bio: "You have nothing to look at.",
+  bio: "This is your own private account.",
 
   // Name badge (set badge to "" to hide it)
   badge: "Just vieewing",

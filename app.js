@@ -1,6 +1,21 @@
 import viewer from "./profiles/viewer.js";
 import morning from "./profiles/morning.js";
 import pezpez from "./profiles/pezpez.js";
+
+import tades from "./profiles/tades.js";
+import tozi from "./profiles/namehere.js";
+import deserve from "./profiles/Deserve.js";
+import kuya from "./profiles/Kuya.js";
+
+
+import namehere from "./profiles/namehere.js";
+import namehere from "./profiles/namehere.js";
+import namehere from "./profiles/namehere.js";
+import namehere from "./profiles/namehere.js";
+import namehere from "./profiles/namehere.js";
+import namehere from "./profiles/namehere.js";
+import namehere from "./profiles/namehere.js";
+
 import {posts as seedPosts, settings} from "./data/content.js";
 
 const profiles = [viewer, morning, pezpez];

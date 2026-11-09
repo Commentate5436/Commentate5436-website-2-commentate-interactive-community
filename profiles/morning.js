@@ -10,7 +10,7 @@ export default {
 
   // Name badge (set badge to "" to hide it)
   badge: "Co-Worker",
-  badgeImage: "",
+  badgeImage: "Artist",
   verified: true,
 
   // Music / artist details
@@ -22,5 +22,5 @@ export default {
   canEditOwn: false,
   maxPosts: 10,
   maxComments: 10,
-  followers: 934890
+  followers: "934,890"
 };
