@@ -22,5 +22,5 @@ export default {
   canEditOwn: false,
   maxPosts: 10,
   maxComments: 10,
-  followers: "789,902"
+  followers: 789902
 };

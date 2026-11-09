@@ -22,5 +22,5 @@ export default {
   canEditOwn: false,
   maxPosts: 10,
   maxComments: 10,
-  followers: "User kept there's locked."
+  followers: 0
 };

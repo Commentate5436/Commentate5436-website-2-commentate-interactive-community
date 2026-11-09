@@ -8,14 +8,6 @@ import deserve from "./profiles/Deserve.js";
 import kuya from "./profiles/Kuya.js";
 
 
-import namehere from "./profiles/namehere.js";
-import namehere from "./profiles/namehere.js";
-import namehere from "./profiles/namehere.js";
-import namehere from "./profiles/namehere.js";
-import namehere from "./profiles/namehere.js";
-import namehere from "./profiles/namehere.js";
-import namehere from "./profiles/namehere.js";
-
 import {posts as seedPosts, settings} from "./data/content.js";
 
 const profiles = [viewer, morning, pezpez, tade, tozi, deserve, kuya, tades];
