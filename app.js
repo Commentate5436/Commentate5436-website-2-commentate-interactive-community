@@ -41,12 +41,65 @@ const profile = id => profiles.find(p=>p.id===id) || morning;
 const avatar = p => `<img class="avatar" src="${esc(p.avatar)}" alt="">`;
 const badge = p => `<span class="badge">${esc(p.badgeImage||"✦")} ${esc(p.badge)}${p.verified?' <span class="verified">✓</span>':''}</span>`;
 function timeAgo(d){let n=Math.max(0,Math.floor((Date.now()-new Date(d).getTime())/60000));return n<1?"just now":n<60?`${n}m ago`:n<1440?`${Math.floor(n/60)}h ago`:`${Math.floor(n/1440)}d ago`}
+function setupPostVideos(){
+ $("#feed").querySelectorAll(".post-video-player").forEach(player=>{
+  const video=player.querySelector("video");
+  const toggle=player.querySelector(".video-play-toggle");
+  const seek=player.querySelector(".video-seek");
+  const progressStar=player.querySelector(".video-progress-star");
+  const time=player.querySelector(".video-time");
+
+  const updateProgress=()=>{
+   const percent=video.duration?video.currentTime/video.duration*100:0;
+   seek.value=String(percent);
+   seek.style.setProperty("--progress",`${percent}%`);
+   progressStar.style.left=`${percent}%`;
+   time.textContent=`${fmt(video.currentTime)} / ${fmt(video.duration)}`;
+  };
+  const updatePlayback=()=>{
+   const isPlaying=!video.paused;
+   toggle.textContent=isPlaying?"Ⅱ":"▶";
+   toggle.setAttribute("aria-label",isPlaying?"Pause video":"Play video");
+   toggle.setAttribute("aria-pressed",String(isPlaying));
+  };
+
+  toggle.addEventListener("click",()=>{
+   if(video.paused){
+    video.play().catch(()=>toast("This video couldn't be played."));
+   }else{
+    video.pause();
+   }
+  });
+  seek.addEventListener("input",()=>{
+   if(video.duration)video.currentTime=video.duration*Number(seek.value)/100;
+  });
+  video.addEventListener("play",()=>{
+   window.clearTimeout(Number(player.dataset.endEffectTimer));
+   player.classList.remove("video-ended");
+   updatePlayback();
+  });
+  video.addEventListener("pause",updatePlayback);
+  video.addEventListener("timeupdate",updateProgress);
+  video.addEventListener("loadedmetadata",updateProgress);
+  video.addEventListener("durationchange",updateProgress);
+  video.addEventListener("ended",()=>{
+   updatePlayback();
+   player.classList.add("video-ended");
+   player.dataset.endEffectTimer=String(window.setTimeout(()=>{
+    player.classList.remove("video-ended");
+    delete player.dataset.endEffectTimer;
+   },2000));
+  });
+  updateProgress();
+  updatePlayback();
+ });
+}
 function render(){
  const feed=$("#feed"); const shown=posts.slice(0,visiblePosts);
  $("#postCount").textContent=posts.length;$("#statPosts").textContent=posts.length;$("#statProfiles").textContent=profiles.length;
  feed.innerHTML=shown.map(post=>{
   const p=profile(post.profileId);
-  const media=post.image?`<img class="post-media" src="${esc(post.image)}">`:post.video?`<video class="post-media" src="${esc(post.video)}" controls></video>`:"";
+  const media=post.image?`<img class="post-media" src="${esc(post.image)}">`:post.video?`<div class="post-video-player"><video class="post-media" src="${esc(post.video)}" playsinline preload="metadata"></video><div class="video-controls"><button class="video-play-toggle" type="button" aria-label="Play video" aria-pressed="false">▶</button><div class="video-progress"><input class="video-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek video"><span class="video-progress-star" aria-hidden="true">★</span></div><span class="video-time">0:00 / 0:00</span></div><div class="video-end-star" aria-hidden="true">✦</div></div>`:"";
   const postSettings={visibleComments:settings.initialVisibleComments,commentsEnabled:true,reactionsEnabled:true,...(post.settings||{})};
   const comments=(post.comments||[]).slice(0,admin?10:postSettings.visibleComments);
   return `<article class="post" data-post="${esc(post.id)}"><div class="post-head">${avatar(p)}<div class="post-user"><b>${esc(p.displayName)}</b>${badge(p)}<small>@${esc(p.username)} · ${timeAgo(post.date)}</small></div><button class="post-menu" data-edit-post="${esc(post.id)}" title="Edit post">···</button></div>
@@ -57,6 +110,7 @@ function render(){
   ${!postSettings.commentsEnabled?`<div class="comment-compose"><input placeholder="Comments are turned off for this post" disabled></div>`:admin?`<div class="comment-compose"><input id="comment-${esc(post.id)}" placeholder="Write a comment as @${esc(owner.username)}…"><button class="tiny-send" data-comment="${esc(post.id)}">SEND</button></div>`:`<div class="comment-compose"><input placeholder="Spectator view · comments are read-only" disabled></div>`}
   </div></article>`;
  }).join("");
+ setupPostVideos();
  $("#feedGate").classList.toggle("hidden",visiblePosts>=posts.length);
  $("#gateUnlock").textContent=admin?"ALL POSTS UNLOCKED":"ENTER ADMIN PIN →";
 }

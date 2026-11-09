@@ -2,6 +2,21 @@
 // Put newest posts first. Use an image/video path inside assets/ or leave it blank.
 export const posts = [
   {
+    id: "p4",
+    profileId: "vamper",
+    text: "When innocent clubs get curious of big ships and end up starting a congeration alert",
+    date: "2026-11-09T20:30:00",
+    image: "",
+    video: "assets/V4mper_vid_post.mp4",
+    likes: 9000000,
+    reactions: { "❤️": 5400000, "😂": 2100000, "🔥": 1000000, "💀": 500000 },
+    settings: { visibleComments: 2, commentsEnabled: true, reactionsEnabled: true },
+    comments: [
+      { id: "c50", profileId: "kuya", text: "LOL", image: "", likes: 8700000, reactions: { "😂": 4200000, "💀": 2600000, "🔥": 1300000, "❤️": 600000 } },
+      { id: "c51", profileId: "tades", text: "LOL", image: "", likes: 8200000, reactions: { "😂": 3900000, "🔥": 2400000, "💀": 1400000, "❤️": 500000 } }
+    ]
+  },
+  {
     id: "p3",
     profileId: "vamper",
     text: "Anyone ready for the Christmas event? I'm sure am fr.",
