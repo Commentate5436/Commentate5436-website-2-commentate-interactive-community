@@ -2,6 +2,27 @@
 // Put newest posts first. Use an image/video path inside assets/ or leave it blank.
 export const posts = [
   {
+    id: "p5",
+    profileId: "kuya",
+    text: `Ima just say this now
+about everything you niggas heard about Alex
+I dont wanna hear about it anymore
+If i see anything about her fucking a black guy or she slept with some one im just ripping bans Ngl
+Because ya'll be forgetting she's a fucking minor, You don't even know her nor here personality so say anything and YA'LL ARE FUCKING IN YA'LL 20S AND 30S FUCK OFF.
+Also mind ya'll business as well. if she wanted to say anything about what that was she'd tell ya'll.`,
+    date: "2026-11-10T01:46:11",
+    image: "",
+    video: "",
+    likes: 9600000,
+    reactions: { "❤️": 5200000, "👏": 2100000, "🔥": 1300000, "L Chat": 1000000 },
+    settings: { visibleComments: 3, commentsEnabled: true, reactionsEnabled: true },
+    comments: [
+      { id: "c52", profileId: "tades", text: "tade funking disgusting", image: "", likes: 870000, reactions: { "😳": 420000, "💀": 280000, "👏": 170000 } },
+      { id: "c53", profileId: "morning", text: "Poor girl", image: "", likes: 920000, reactions: { "❤️": 560000, "🥹": 240000, "👏": 120000 } },
+      { id: "c54", profileId: "pezpez", text: "yeah nah thats werid asf", image: "", likes: 640000, reactions: { "💀": 310000, "😂": 210000, "👏": 120000 } }
+    ]
+  },
+  {
     id: "p4",
     profileId: "vamper",
     text: "When innocent clubs get curious of big ships and end up starting a congeration alert",
