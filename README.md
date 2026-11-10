@@ -13,7 +13,7 @@ Because the site uses JavaScript modules, open this folder with a local static s
 Edit `profiles/owner.js` or `profiles/morning.js`. Each file has clearly separated sections for identity, avatar, profile background, badge, music/artist details, permissions, and limits. To add an account, duplicate a profile file, edit its values, then add its import and profile entry near the top of `app.js`.
 
 - `profileBackground`: optional image URL or path, such as `assets/my-profile-bg.jpg`.
-- `badge` and `badgeImage`: badge text and icon shown beside the account name and on its comments. Set `badge: ""` to hide it.
+- `badge` and `badgeImage`: badge text and icon shown beside the account name and on its comments. Set `badge: ""` to hide it. Set `verified: true` to show the verification image from `assets/verified.png`.
 - `musicName`: the artist / music owner label used by the music player.
 
 ### Posts — each post has its own settings

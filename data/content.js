@@ -2,6 +2,33 @@
 // Put newest posts first. Use an image/video path inside assets/ or leave it blank.
 export const posts = [
   {
+    id: "p6",
+    profileId: "lovya",
+    text: `HAPPY BIRTHDAY YOU BEAUTIFUL FUCK MOVE OUTTA THE WAY PEOPLEE BECUASE THIS IS THE PERSON WE ALL KNOW [Kuya]
+We're so happy we have you're ass, gosh wee been here so long with each other i cant even tell you how much you fucking matter to me and not even just fucking me, EVERY FUCKING PERSON IN OUR GC FUCKING LOVES YOU DUDE.
+You've impacted everyone's lives here made sure we was well fed and hell made sure we all had a great time I don't give a single damn fuck
+if you're a villain with those treats YOU ARE MY HERO BY HEEART
+When my father was abusive and slammed me on the floor and done so much horrible things to me you Knocked his ass without a second thought. offered mee a place to stay even though shit was bad.
+You're fucking amazing and I'll forever thing that The shit you've put in this server, the suffering you had to endure the pain and guidance that you had to do shows it all over you're damn body from top to bottom
+This comes from everyone in thee D.L whos been looking out for you're ass. Seriously dude Thank you so much. I bet a lot of people didn't say it before i did  :3
+But you're work is something to be proud of
+Now go to sleep and keep napping you fucking idiot. you deserve all the sleeps you can get`,
+    date: "2026-11-05T20:39:42",
+    image: "",
+    video: "",
+    likes: 9800000000,
+    reactions: { "❤️": 3400000000, "🍰": 2300000000, "🎂": 1800000000, "🥳": 1200000000, "🎉": 1100000000 },
+    settings: { visibleComments: 6, commentsEnabled: true, reactionsEnabled: true },
+    comments: [
+      { id: "c55", profileId: "viewer", text: "this Post is 5 Days old. due to commentates traffic. It's being shown today.", image: "", likes: 0, reactions: {} },
+      { id: "c56", profileId: "tades", text: "HAPPY BRITHDAY TO YOU YONI THANK YOU FOR ALL THE THINGS YOU'VE DONE", image: "", likes: 0, reactions: {} },
+      { id: "c57", profileId: "geekbar", text: "HAPPY BRITHDAY MR WAFFLE ^^!!", image: "", likes: 0, reactions: {} },
+      { id: "c58", profileId: "advise", text: "HAPPYYYYYYYYYYYYYYYYYYYYYYYYYYYY BRITHDAY", image: "", likes: 0, reactions: {} },
+      { id: "c59", profileId: "lisvi", text: "HAPPY BRITH TO THEE DAY TO YOU HENNMO", image: "", likes: 0, reactions: {} },
+      { id: "c60", profileId: "noteface", text: "HAPYY BRITHDAY NOOZKI", image: "", likes: 0, reactions: {} }
+    ]
+  },
+  {
     id: "p5",
     profileId: "kuya",
     text: `Ima just say this now
