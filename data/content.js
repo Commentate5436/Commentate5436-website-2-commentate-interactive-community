@@ -14,7 +14,7 @@ This comes from everyone in thee D.L whos been looking out for you're ass. Serio
 But you're work is something to be proud of
 Now go to sleep and keep napping you fucking idiot. you deserve all the sleeps you can get`,
     date: "2026-11-05T20:39:42",
-    image: "",
+    image: "memes/elma-elma-happy.gif",
     video: "",
     likes: 9800000000,
     reactions: { "❤️": 3400000000, "🍰": 2300000000, "🎂": 1800000000, "🥳": 1200000000, "🎉": 1100000000 },
