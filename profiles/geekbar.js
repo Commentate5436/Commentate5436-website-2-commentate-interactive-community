@@ -1,9 +1,9 @@
 export default {
   id: "geekbar",
-  username: "GeekBar_profile",
+  username: "GeekBar_",
   displayName: "GeekBar",
   avatar: "assets/GeekBar_profile.jpg",
-  profileBackground: "",
+  profileBackground: "assets/geekbarbackground.jpg",
   bio: "Give ne you're best moan",
   badge: "",
   badgeImage: "",
