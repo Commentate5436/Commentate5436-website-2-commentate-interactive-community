@@ -10,7 +10,7 @@ export default {
 
   // Name badge (set badge to "" to hide it)
   badge: "verified",
-  badgeImage: "KKG!",
+  badgeImage: "",
   verified: true,
 
   // Music / artist details

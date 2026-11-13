@@ -1,6 +1,6 @@
 export default {
   id: "noteface",
-  username: "NoteFace_profile",
+  username: "NoteFace",
   displayName: "NoteFace",
   avatar: "assets/NoteFace_profile.jpg",
   profileBackground: "",

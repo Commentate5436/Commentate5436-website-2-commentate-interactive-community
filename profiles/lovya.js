@@ -1,6 +1,6 @@
 export default {
   id: "lovya",
-  username: "Lovya~_Profile",
+  username: "Lovya~",
   displayName: "Lovya~",
   avatar: "assets/Lovya~_Profile.webp",
   profileBackground: "",

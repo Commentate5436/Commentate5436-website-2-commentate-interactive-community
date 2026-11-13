@@ -1,6 +1,6 @@
 export default {
   id: "grandna",
-  username: "Grandna_Profile",
+  username: "Grandna",
   displayName: "Grandna",
   avatar: "assets/Grandna_Profile.jpg",
   profileBackground: "",

@@ -9,8 +9,8 @@ export default {
   bio: "",
 
   // Name badge (set badge to "" to hide it)
-  badge: "Co-worker",
-  badgeImage: "Artist",
+  badge: "Co-worker,verified",
+  badgeImage: "Artist,",
   verified: true,
 
   // Music / artist details

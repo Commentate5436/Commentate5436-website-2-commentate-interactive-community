@@ -1,6 +1,6 @@
 export default {
   id: "onesways",
-  username: "Onesways_profile",
+  username: "Onesways",
   displayName: "Onesways",
   avatar: "assets/Onesways_profile.jpg",
   profileBackground: "",

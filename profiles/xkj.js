@@ -1,6 +1,6 @@
 export default {
   id: "xkj",
-  username: "XKJ_profile",
+  username: "XKJ",
   displayName: "XKJ",
   avatar: "assets/XKJ_profile.jpg",
   profileBackground: "",
