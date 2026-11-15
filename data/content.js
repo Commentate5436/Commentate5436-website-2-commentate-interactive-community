@@ -8,9 +8,11 @@ export const posts = [
     date: "",
     image: "",
     video: "",
-    likes: 0,
-    reactions: {},
-    comments: []
+    likes: 1230,
+    reactions: {"Bong": 20000,},
+    comments: [
+      { id: "c118", profileId: "velvetvenom", text: "I gotchu.", image: "memes/09288410c50c4158b39c9e2a99a3b9bb~tplv-jj85edgx6n-image-origin.jpeg", likes: 0, reactions: {} }
+    ]
   },
   {
     id: "p8",
