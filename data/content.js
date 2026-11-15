@@ -2,6 +2,17 @@
 // Put newest posts first. Use an image/video path inside assets/ or memes/, or leave it blank.
 export const posts = [
   {
+    id: "p9",
+    profileId: "pacificus-ataraxia",
+    text: "Recently my club was taken over by the PUFFTHATSOUP CLUB. They have been sending unwanted explicit material and trolling with TBR GIFs. If anyone can help me recover my club through official support or its admins, I'll offer $1,349 worth of emoji reacts. Please don't try to access anyone else's account or use unauthorized methods.",
+    date: "",
+    image: "",
+    video: "",
+    likes: 0,
+    reactions: {},
+    comments: []
+  },
+  {
     id: "p8",
     profileId: "connie",
     text: "",
