@@ -4,7 +4,7 @@ export const posts = [
   {
     id: "p8",
     profileId: "connie",
-    text: "Leafs_post",
+    text: "",
     date: "2026-11-15T03:00:00",
     image: "memes/Leafs_post.gif",
     video: "",

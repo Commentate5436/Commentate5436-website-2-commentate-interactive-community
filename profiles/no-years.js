@@ -8,7 +8,7 @@ export default {
   bio: "",
   badge: "Apart of the Hons",
   badgeImage: "",
-  verified: false,
+  verified: true,
   artist: false,
   musicName: "",
   canPost: true,
