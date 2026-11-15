@@ -16,11 +16,18 @@ import advise from "./profiles/advise.js";
 import grandna from "./profiles/grandna.js";
 import xkj from "./profiles/xkj.js";
 import lovya from "./profiles/lovya.js";
+import noYears from "./profiles/no-years.js";
+import leinberMens from "./profiles/leinber-mens.js";
+import morbidia from "./profiles/morbidia.js";
+import henmaside from "./profiles/henmaside.js";
+import moon from "./profiles/moon.js";
+import connie from "./profiles/connie.js";
+import sports from "./profiles/sports.js";
 
 
 import {posts as seedPosts, settings} from "./data/content.js";
 
-const profiles = [viewer, morning, pezpez, tades, tozi, deserve, kuya, vamper, geekbar, geenaploy, onesways, noteface, lisvi, advise, grandna, xkj, lovya];
+const profiles = [viewer, morning, pezpez, tades, tozi, deserve, kuya, vamper, geekbar, geenaploy, onesways, noteface, lisvi, advise, grandna, xkj, lovya, noYears, leinberMens, morbidia, henmaside, moon, connie, sports];
 // The music player and admin comment composer use the site owner profile.
 // viewer.js is the configured owner profile for this build.
 const owner = viewer;
@@ -48,6 +55,7 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const profile = id => profiles.find(p=>p.id===id) || morning;
 const avatar = p => `<img class="avatar" src="${esc(p.avatar)}" alt="">`;
+const avatarLink = p => `<button class="profile-avatar-link" type="button" data-profile="${esc(p.id)}" aria-label="View ${esc(p.displayName)} profile">${avatar(p)}</button>`;
 const badge = p => p.badge || p.badgeImage || p.verified ? `<span class="badge">${p.badgeImage?`${esc(p.badgeImage)} `:""}${esc(p.badge||"")}${p.verified?' <img class="verified" src="assets/verified.png" alt="Verified" style="width:14px;height:14px;object-fit:contain;vertical-align:middle">':""}</span>` : "";
 function timeAgo(d){let n=Math.max(0,Math.floor((Date.now()-new Date(d).getTime())/60000));return n<1?"just now":n<60?`${n}m ago`:n<1440?`${Math.floor(n/60)}h ago`:`${Math.floor(n/1440)}d ago`}
 function setupPostVideos(){
@@ -111,11 +119,11 @@ function render(){
   const media=post.image?`<img class="post-media" src="${esc(post.image)}">`:post.video?`<div class="post-video-player"><video class="post-media" src="${esc(post.video)}" playsinline preload="metadata"></video><div class="video-controls"><button class="video-play-toggle" type="button" aria-label="Play video" aria-pressed="false">▶</button><div class="video-progress"><input class="video-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek video"><span class="video-progress-star" aria-hidden="true">★</span></div><span class="video-time">0:00 / 0:00</span></div><div class="video-end-star" aria-hidden="true">✦</div></div>`:"";
   const postSettings={visibleComments:settings.initialVisibleComments,commentsEnabled:true,reactionsEnabled:true,...(post.settings||{})};
   const comments=(post.comments||[]).slice(0,admin?10:postSettings.visibleComments);
-  return `<article class="post" data-post="${esc(post.id)}"><div class="post-head">${avatar(p)}<div class="post-user"><b>${esc(p.displayName)}</b>${badge(p)}<small>@${esc(p.username)} · ${timeAgo(post.date)}</small></div><button class="post-menu" data-edit-post="${esc(post.id)}" title="Edit post">···</button></div>
+  return `<article class="post" data-post="${esc(post.id)}"><div class="post-head">${avatarLink(p)}<div class="post-user"><button class="post-profile-link" type="button" data-profile="${esc(p.id)}"><b>${esc(p.displayName)}</b>${badge(p)}<small>@${esc(p.username)} · ${timeAgo(post.date)}</small></button></div><button class="post-menu" data-edit-post="${esc(post.id)}" title="Edit post">···</button></div>
   <div class="post-text">${esc(post.text).replace(/\n/g,"<br>")}</div>${media}
   <div class="post-actions"><button class="action ${post.liked?'liked':''}" data-like="${esc(post.id)}">♥ ${post.likes||0} likes</button><button class="action" data-focus="${esc(post.id)}">↩ ${(post.comments||[]).length} comments</button>${postSettings.reactionsEnabled?`<button class="action" data-react="${esc(post.id)}">＋ react</button>`:""}${admin?`<button class="action" data-delete="${esc(post.id)}">delete</button>`:""}</div>
   <div class="reactions">${postSettings.reactionsEnabled?Object.entries(post.reactions||{}).map(([e,n])=>`<button class="react" data-react-existing="${esc(post.id)}|${esc(e)}">${e} ${n}</button>`).join(""):""}</div>
-  <div class="comments">${comments.map(c=>{let cp=profile(c.profileId);return `<div class="comment">${avatar(cp)}<div class="comment-content"><b>${esc(cp.username)}</b>${badge(cp)}${esc(c.text)}${c.image?`<img class="comment-image" src="${esc(c.image)}">`:""}<div class="comment-actions">${settings.commentReactionChoices.map(emoji=>`<button class="comment-react" data-comment-react="${esc(post.id)}|${esc(c.id)}|${emoji}" title="React ${emoji}">${emoji}</button>`).join("")}${Object.entries(c.reactions||{}).map(([emoji,count])=>`<button class="comment-react-count" data-comment-react="${esc(post.id)}|${esc(c.id)}|${esc(emoji)}">${emoji} ${count}</button>`).join("")}${admin?`<button class="comment-edit" data-edit-comment="${esc(post.id)}|${esc(c.id)}">edit</button><button class="comment-edit" data-delete-comment="${esc(post.id)}|${esc(c.id)}">delete</button>`:""}</div></div></div>`}).join("")}
+  <div class="comments">${comments.map(c=>{let cp=profile(c.profileId);return `<div class="comment">${avatarLink(cp)}<div class="comment-content"><button class="comment-profile-link" type="button" data-profile="${esc(cp.id)}"><b>${esc(cp.username)}</b>${badge(cp)}</button>${esc(c.text)}${c.image?`<img class="comment-image" src="${esc(c.image)}">`:""}<div class="comment-actions">${settings.commentReactionChoices.map(emoji=>`<button class="comment-react" data-comment-react="${esc(post.id)}|${esc(c.id)}|${emoji}" title="React ${emoji}">${emoji}</button>`).join("")}${Object.entries(c.reactions||{}).map(([emoji,count])=>`<button class="comment-react-count" data-comment-react="${esc(post.id)}|${esc(c.id)}|${esc(emoji)}">${emoji} ${count}</button>`).join("")}${admin?`<button class="comment-edit" data-edit-comment="${esc(post.id)}|${esc(c.id)}">edit</button><button class="comment-edit" data-delete-comment="${esc(post.id)}|${esc(c.id)}">delete</button>`:""}</div></div></div>`}).join("")}
   ${!postSettings.commentsEnabled?`<div class="comment-compose"><input placeholder="Comments are turned off for this post" disabled></div>`:admin?`<div class="comment-compose"><input id="comment-${esc(post.id)}" placeholder="Write a comment as @${esc(owner.username)}…"><button class="tiny-send" data-comment="${esc(post.id)}">SEND</button></div>`:`<div class="comment-compose"><input placeholder="Spectator view · comments are read-only" disabled></div>`}
   </div></article>`;
  }).join("");

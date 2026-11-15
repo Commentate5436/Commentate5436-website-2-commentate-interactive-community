@@ -2,6 +2,36 @@
 // Put newest posts first. Use an image/video path inside assets/ or memes/, or leave it blank.
 export const posts = [
   {
+    id: "p8",
+    profileId: "connie",
+    text: "Leafs_post",
+    date: "2026-11-15T03:00:00",
+    image: "memes/Leafs_post.gif",
+    video: "",
+    likes: 0,
+    reactions: {},
+    settings: { visibleComments: 20, commentsEnabled: true, reactionsEnabled: true },
+    comments: [
+      { id: "c101", profileId: "kuya", text: "what are we gonna do about the royalty family now that they hate our asses pretty much", image: "", likes: 0, reactions: {} },
+      { id: "c102", profileId: "connie", text: "I'm not to worried. They're low on men. and can't even Hold proper bets without fucking everything up", image: "", likes: 0, reactions: {} },
+      { id: "c103", profileId: "sports", text: "you shouldn't be worried about that Oun.", image: "", likes: 0, reactions: {} },
+      { id: "c104", profileId: "kuya", text: "well not about me being worried i am a bit just making sure we cool", image: "", likes: 0, reactions: {} },
+      { id: "c105", profileId: "connie", text: "we are, I don't ever seeing that family wining any war + Our clan isn't on S.TOWER", image: "", likes: 0, reactions: {} },
+      { id: "c106", profileId: "kuya", text: "True true", image: "", likes: 0, reactions: {} },
+      { id: "c107", profileId: "no-years", text: "Wasn't the clan put on sea's? Or. I'm just blind", image: "", likes: 0, reactions: {} },
+      { id: "c108", profileId: "connie", text: "It was put on seas for Sometime Now. since the War that took place awhile ago. It was needed", image: "", likes: 0, reactions: {} },
+      { id: "c109", profileId: "no-years", text: "Should have guessed.", image: "", likes: 0, reactions: {} },
+      { id: "c110", profileId: "sports", text: "@Kuya. How is you're mantel state?", image: "", likes: 0, reactions: {} },
+      { id: "c111", profileId: "kuya", text: "Ass right now but im holding in just fine", image: "", likes: 0, reactions: {} },
+      { id: "c112", profileId: "sports", text: "no going insane?.. Your okay?", image: "", likes: 0, reactions: {} },
+      { id: "c113", profileId: "kuya", text: "haven't in a while so i rather keep it that way", image: "", likes: 0, reactions: {} },
+      { id: "c114", profileId: "sports", text: "Good.", image: "", likes: 0, reactions: {} },
+      { id: "c115", profileId: "henmaside", text: "Also kuya. Im here for you Okay?. We can talk about it again right when i come back to your country", image: "", likes: 0, reactions: {} },
+      { id: "c116", profileId: "kuya", text: "bet. Love you stay safe on the ride", image: "", likes: 0, reactions: {} },
+      { id: "c117", profileId: "henmaside", text: "Try too", image: "", likes: 0, reactions: {} }
+    ]
+  },
+  {
     id: "p7",
     profileId: "kuya",
     text: "This HAS to be one of the most trippy maps I've been on",

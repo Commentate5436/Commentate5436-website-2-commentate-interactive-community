@@ -9,6 +9,14 @@ body:after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;back
 .comment-react,.comment-react-count{background:#211820;border:1px solid #3c2935;color:#e8cbd5;border-radius:14px;padding:3px 7px;font-size:11px;line-height:1.2}
 .comment-react:hover,.comment-react-count:hover{border-color:#a94360;background:#351824}
 .comment-edit{background:transparent;color:#9e8d99;font-size:9px;padding:3px 5px}
+.profile-avatar-link,.post-profile-link,.comment-profile-link{border:0;background:transparent;padding:0;text-align:left;color:inherit}
+.profile-avatar-link{display:block;flex:0 0 auto;line-height:0;border-radius:12px}
+.profile-avatar-link:hover .avatar,.profile-avatar-link:focus-visible .avatar{border-color:#ff6684;box-shadow:0 0 12px #ff315855}
+.post-profile-link{cursor:pointer}
+.post-profile-link:hover b,.post-profile-link:focus-visible b,.comment-profile-link:hover b,.comment-profile-link:focus-visible b{color:#fff;text-decoration:underline;text-decoration-color:#ff6684}
+.post-profile-link:focus-visible,.comment-profile-link:focus-visible,.profile-avatar-link:focus-visible{outline:2px solid #ff6684;outline-offset:3px;border-radius:5px}
+.comment-profile-link{font:inherit;cursor:pointer;margin:0 6px 0 0}
+.comment-profile-link b{margin-right:0}
 
 /* Blue-and-white glowing update notice; leaves the existing layout untouched. */
 .update-notice-backdrop{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:20px;background:rgba(3,7,18,.78);backdrop-filter:blur(10px)}
