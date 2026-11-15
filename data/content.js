@@ -4,7 +4,7 @@ export const posts = [
   {
     id: "p9",
     profileId: "pacificus-ataraxia",
-    text: "Recently my club was taken over by the PUFFTHATSOUP CLUB. They have been sending unwanted explicit material and trolling with TBR GIFs. If anyone can help me recover my club through official support or its admins, I'll offer $1,349 worth of emoji reacts. Please don't try to access anyone else's account or use unauthorized methods.",
+    text: "Recently my club was taken by the  PUFFTHATSOUP CLUB. Not only were they very toxic and send hentai of a female getting pounded or just troll TBR gifs I'll pay anyone who can get my club back 1,349$ worth of emoji reacts to whoever can get my club back",
     date: "",
     image: "",
     video: "",
