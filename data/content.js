@@ -275,7 +275,6 @@ export const settings = {
   initialVisibleComments: 2,
   feedLimit: 10,
 
-  accessCode: "FIVEDIVE",
   adminPin: "723X",
 
   peopleRequiresAdmin: false,
