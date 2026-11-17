@@ -5,7 +5,20 @@
 <meta name="theme-color" content="#09090d"><title>Commentate — say something.</title>
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="access-locked">
+<section id="accessGate" class="access-gate" role="dialog" aria-modal="true" aria-labelledby="accessTitle">
+<form id="accessForm" class="access-card">
+<div class="access-mark" aria-hidden="true">C✦</div>
+<p class="access-kicker">COMMENTATE COMMUNITY</p>
+<h1 id="accessTitle">A little access check.</h1>
+<p class="access-description">Enter your access code to continue.</p>
+<label for="accessCodeInput">ACCESS CODE</label>
+<input id="accessCodeInput" name="accessCode" type="password" placeholder="Enter access code" autocomplete="off" autocapitalize="characters" required aria-describedby="accessError">
+<p id="accessError" class="access-error" role="status" aria-live="polite"></p>
+<button class="access-submit" type="submit">UNLOCK ACCESS <span aria-hidden="true">→</span></button>
+</form>
+</section>
+<div id="site-content" inert>
 <div id="loader" class="loader"><div class="loader-mark">C<span>✦</span></div><div class="loader-word">COMMENTATE</div><p>Welcoming to Commentate — we'll be with you in a sec.</p><div class="load-line"><i></i></div></div>
 <div class="stars" aria-hidden="true"></div>
 <header class="topbar"><a class="brand" href="#"><span class="brand-icon">C✦</span><span>COMMENTATE<small>FOR GITHUB</small></span></a><div class="top-actions"><span class="live-dot">COMMUNITY ONLINE</span><button id="musicToggle" class="icon-btn" title="Show music player">♫</button><button id="openUpdates" class="icon-btn" title="What's new">✧</button><button id="adminBtn" class="admin-btn">ADMIN ACCESS</button></div></header>
@@ -25,4 +38,5 @@
 <audio id="audio"></audio>
 <script>window.setTimeout(() => document.getElementById("loader")?.classList.add("done"), 6000);</script>
 <script type="module" src="app.js"></script>
+</div>
 </body></html>

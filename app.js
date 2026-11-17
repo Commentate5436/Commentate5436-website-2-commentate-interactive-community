@@ -25,11 +25,15 @@ import henmaside from "./profiles/henmaside.js";
 import moon from "./profiles/moon.js";
 import connie from "./profiles/connie.js";
 import sports from "./profiles/sports.js";
+import flipMoo from "./profiles/FlipMoo.js";
+import pixkurin from "./profiles/PIXKURIN.js";
+import linneyConzi from "./profiles/LinneyConzi.js";
+import plasx from "./profiles/PLASX.js";
 
 
 import {posts as seedPosts, settings} from "./data/content.js";
 
-const profiles = [viewer, morning, pezpez, tades, tozi, deserve, kuya, vamper, geekbar, geenaploy, onesways, noteface, lisvi, advise, grandna, xkj, lovya, noYears, pacificusAtaraxia, velvetvenom, leinberMens, morbidia, henmaside, moon, connie, sports];
+const profiles = [viewer, morning, pezpez, tades, tozi, deserve, kuya, vamper, geekbar, geenaploy, onesways, noteface, lisvi, advise, grandna, xkj, lovya, noYears, pacificusAtaraxia, velvetvenom, leinberMens, morbidia, henmaside, moon, connie, sports, flipMoo, pixkurin, linneyConzi, plasx];
 // The music player and admin comment composer use the site owner profile.
 // viewer.js is the configured owner profile for this build.
 const owner = viewer;
@@ -54,6 +58,40 @@ const owner = viewer;
 let posts = structuredClone(seedPosts);
 let admin = false, visiblePosts = settings.initialVisiblePosts;
 const $ = s => document.querySelector(s);
+
+const accessGate = $("#accessGate");
+const siteContent = $("#site-content");
+const accessForm = $("#accessForm");
+const accessCodeInput = $("#accessCodeInput");
+const accessError = $("#accessError");
+const accessUnlockedKey = "commentateAccessUnlocked";
+
+function unlockSite(){
+ sessionStorage.setItem(accessUnlockedKey,"true");
+ accessGate.classList.add("hidden");
+ siteContent.inert = false;
+ document.body.classList.remove("access-locked");
+}
+
+if(sessionStorage.getItem(accessUnlockedKey)==="true"){
+ accessGate.classList.add("hidden");
+ siteContent.inert = false;
+ document.body.classList.remove("access-locked");
+}
+
+accessForm.addEventListener("submit",event=>{
+ event.preventDefault();
+ if(accessCodeInput.value===settings.accessCode){
+  unlockSite();
+ }else{
+  accessError.textContent="Incorrect code";
+  accessCodeInput.select();
+  window.setTimeout(()=>{accessError.textContent="";},2200);
+ }
+});
+
+accessCodeInput.addEventListener("input",()=>{accessError.textContent="";});
+
 const esc = s => String(s ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const profile = id => profiles.find(p=>p.id===id) || morning;
 const avatar = p => `<img class="avatar" src="${esc(p.avatar)}" alt="">`;

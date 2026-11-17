@@ -2,6 +2,37 @@
 // Put newest posts first. Use an image/video path inside assets/ or memes/, or leave it blank.
 export const posts = [
   {
+    id: "p10",
+    profileId: "linneyconzi",
+    text: "Im regretting getting this shit",
+    date: "2026-11-17T13:14:00",
+    image: "memes/Post55.avif",
+    video: "",
+    likes: 9800000000,
+    reactions: { "❤️": 3400000000, "😂": 2300000000, "🔥": 1800000000, "💀": 1200000000, "😭": 1100000000 },
+    settings: { visibleComments: 20, commentsEnabled: true, reactionsEnabled: true },
+    comments: [
+      { id: "c119", profileId: "flipmoo", text: "what the fuck is that shit..", image: "", likes: 0, reactions: {} },
+      { id: "c120", profileId: "linneyconzi", text: "my boi rainchip He fucking me up right  now", image: "", likes: 0, reactions: {} },
+      { id: "c121", profileId: "flipmoo", text: "Righttttt like you giving afuck about any of that", image: "", likes: 0, reactions: {} },
+      { id: "c122", profileId: "linneyconzi", text: "shut you're ass up bitch", image: "", likes: 0, reactions: {} },
+      { id: "c123", profileId: "flipmoo", text: "love you too :3", image: "", likes: 0, reactions: {} },
+      { id: "c124", profileId: "linneyconzi", text: "BRUH.", image: "memes/8d7333cefb4a4579bba6465189bb55cd~tplv-f2jg4exsff-full.webp", likes: 0, reactions: {} },
+      { id: "c125", profileId: "plasx", text: "Gayy asf.", image: "", likes: 0, reactions: {} },
+      { id: "c126", profileId: "linneyconzi", text: "You're Pinterest is filled with furriers fucking", image: "", likes: 0, reactions: {} },
+      { id: "c127", profileId: "plasx", text: "at least im honest about it", image: "", likes: 0, reactions: {} },
+      { id: "c128", profileId: "linneyconzi", text: "WHAT???.", image: "", likes: 0, reactions: {} },
+      { id: "c129", profileId: "plasx", text: "can't i be honest? Furry butt is just the best", image: "", likes: 0, reactions: {} },
+      { id: "c130", profileId: "flipmoo", text: "what the fuck are ya'll doing in my fucking comments", image: "", likes: 0, reactions: {} },
+      { id: "c131", profileId: "pixkurin", text: "....", image: "", likes: 0, reactions: {} },
+      { id: "c132", profileId: "flipmoo", text: "Haiii :3", image: "", likes: 0, reactions: {} },
+      { id: "c133", profileId: "pixkurin", text: "ello ^^", image: "", likes: 0, reactions: {} },
+      { id: "c134", profileId: "linneyconzi", text: "didn't pix went on vaykay", image: "", likes: 0, reactions: {} },
+      { id: "c135", profileId: "pixkurin", text: "i did for 5 weeks My ass  wasn't dealing with the allegations", image: "", likes: 0, reactions: {} },
+      { id: "c136", profileId: "linneyconzi", text: "Oh. well welcome back", image: "", likes: 0, reactions: {} }
+    ]
+  },
+  {
     id: "p9",
     profileId: "pacificus-ataraxia",
     text: "Recently my club was taken by the  PUFFTHATSOUP CLUB. Not only were they very toxic and send hentai of a female getting pounded or just troll TBR gifs I'll pay anyone who can get my club back 1,349$ worth of emoji reacts to whoever can get my club back",
@@ -244,6 +275,7 @@ export const settings = {
   initialVisibleComments: 2,
   feedLimit: 10,
 
+  accessCode: "FIVEDIVE",
   adminPin: "723X",
 
   peopleRequiresAdmin: false,
