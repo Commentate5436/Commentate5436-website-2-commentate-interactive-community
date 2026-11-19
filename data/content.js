@@ -8,10 +8,19 @@ export const posts = [
     date: "",
     image: "memes/ALEXPOST.webp",
     video: "",
-    likes: 1,
-    reactions: {},
+    likes: 9800000,
+    reactions: { "❤️": 3400000, "😂": 2300000, "🔥": 1800000, "🥹": 1200000, "😳": 1100000 },
     settings: { visibleComments: 20, commentsEnabled: true, reactionsEnabled: true },
-    comments: []
+    comments: [
+      { id: "c137", profileId: "kuya", text: "It looks beautiful<3", image: "", likes: 860000, reactions: { "❤️": 420000, "🥹": 280000, "✨": 160000 } },
+      { id: "c138", profileId: "tades", text: "SHE ATE", image: "", likes: 740000, reactions: { "🔥": 390000, "❤️": 210000, "👏": 140000 } },
+      { id: "c139", profileId: "tozi", text: "Im gonna cry it looks good!", image: "memes/tozimeme.jpg", likes: 920000, reactions: { "😂": 460000, "🥹": 290000, "😭": 170000 } },
+      { id: "c140", profileId: "flipmoo", text: "hotpockets", image: "", likes: 680000, reactions: { "😂": 410000, "💀": 180000, "🔥": 90000 } },
+      { id: "c141", profileId: "tozi", text: "shut you're little ass up", image: "", likes: 510000, reactions: { "😂": 300000, "💀": 130000, "👀": 80000 } },
+      { id: "c142", profileId: "flipmoo", text: "AH. IGHT NO MOREE  ICE", image: "", likes: 620000, reactions: { "😂": 350000, "💀": 170000, "😭": 100000 } },
+      { id: "c143", profileId: "tozi", text: "TOZI RELAX RELAX.", image: "", likes: 480000, reactions: { "😂": 260000, "🙌": 140000, "💀": 80000 } },
+      { id: "c144", profileId: "morning", text: "It loves wonderful", image: "", likes: 5900000, reactions: { "❤️": 3400000, "🥹": 1500000, "✨": 700000, "😭": 300000 } }
+    ]
   },
   {
     "id": "p1794973862714",
