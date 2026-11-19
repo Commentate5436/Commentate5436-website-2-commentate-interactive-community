@@ -3,8 +3,11 @@
 A self-contained, script-controlled neon community feed prototype. The visual design is intentionally kept as-is.
 
 ## Run it
-Because the site uses JavaScript modules, open this folder with a local static server:
-- `python -m http.server 8000`
+Install the project's npm dependencies (there are currently none):
+- `npm install`
+
+Start the local server:
+- `npm start`
 - Then visit `http://localhost:8000`
 
 ## Easy customization
@@ -24,21 +27,25 @@ Edit `data/content.js`. Each post contains its own text, media, reactions, comme
 
 Each comment has its own `profileId`, text, optional image, and `reactions` object. The comment reaction chips are controlled globally by `settings.commentReactionChoices`.
 
+Posts created in the local `npm start` preview are added to the top of `data/content.js`. New comments and emoji reactions are saved in `data/activity.json`. Commit and publish both files to include them on the public static website; the public static site cannot save new activity itself.
+
 ### General feed settings
 At the bottom of `data/content.js`, change the default feed limits, admin PIN, site name, and available comment reaction emojis.
 
 ## Spectator and admin access
 - Visitors have no account and are spectators: they can view the feed and profiles but cannot post or comment.
 - The People navigation option is locked until admin access is unlocked.
+- After unlocking admin access, use the rotating-arrow button beside the star to choose an account. The star posts as that account, and new comments use it too; the plus button still posts as the site owner.
 - Admin PIN: `723X`.
 
 ## Important security note
 This is a front-end prototype. The PIN and content are shipped to the browser, so this is not secure authentication. For a public GitHub Pages deployment, use a backend (for example Supabase/Firebase) with server-side authorization before allowing real users to post, edit, follow, or moderate.
+Keep the `npm start` preview port private: its local save endpoint uses the same PIN that is visible in the site source.
 
 ## Music
 The music owner / artist name comes from `profiles/owner.js` (`musicName`). Track files and titles are listed in `app.js` in the `tracks` array.
 
-Edits made in the quick post editor only last for the current browser session. To make content permanent, edit `data/content.js` or the profile files and reload.
+Posts, new comments, and emoji reactions are saved when using `npm start`. Editing or deleting existing posts or comments, and post likes, still last only for the current browser session.
 
 
 ## Publishing an update notice

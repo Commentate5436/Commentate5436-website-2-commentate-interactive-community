@@ -2,6 +2,30 @@
 // Put newest posts first. Use an image/video path inside assets/ or memes/, or leave it blank.
 export const posts = [
   {
+    id: "p1795064709828",
+    profileId: "alex",
+    text: "Recent pen sketch I made :]",
+    date: "",
+    image: "memes/ALEXPOST.webp",
+    video: "",
+    likes: 1,
+    reactions: {},
+    settings: { visibleComments: 20, commentsEnabled: true, reactionsEnabled: true },
+    comments: []
+  },
+  {
+    "id": "p1794973862714",
+    "profileId": "plasx",
+    "text": "Nglllll, Who ready for thanks giving? we should run our own little party",
+    "date": "2026-11-18T03:51:02.714Z",
+    "image": "memes/Hehehehehea.gif",
+    "video": "",
+    "likes": 0,
+    "reactions": {},
+    "comments": [],
+    "savedByEditor": true
+  },
+  {
     id: "p10",
     profileId: "linneyconzi",
     text: "Im regretting getting this shit",
@@ -12,7 +36,7 @@ export const posts = [
     reactions: { "❤️": 3400000000, "😂": 2300000000, "🔥": 1800000000, "💀": 1200000000, "😭": 1100000000 },
     settings: { visibleComments: 20, commentsEnabled: true, reactionsEnabled: true },
     comments: [
-      { id: "c119", profileId: "flipmoo", text: "what the fuck is that shit..", image: "", likes: 0, reactions: {} },
+      { id: "c119", profileId: "o", text: "what the fuck is that shit..", image: "", likes: 0, reactions: {} },
       { id: "c120", profileId: "linneyconzi", text: "my boi rainchip He fucking me up right  now", image: "", likes: 0, reactions: {} },
       { id: "c121", profileId: "flipmoo", text: "Righttttt like you giving afuck about any of that", image: "", likes: 0, reactions: {} },
       { id: "c122", profileId: "linneyconzi", text: "shut you're ass up bitch", image: "", likes: 0, reactions: {} },

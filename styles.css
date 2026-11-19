@@ -48,3 +48,9 @@ body:after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;back
 .video-ended .video-end-star{visibility:visible;animation:video-star-finish 2s ease-out forwards}
 @keyframes video-star-finish{0%{opacity:0;transform:scale(.3) rotate(-35deg)}20%{opacity:1;transform:scale(1.15) rotate(8deg)}60%{opacity:.9;transform:scale(1) rotate(0)}100%{opacity:0;transform:scale(1.4) rotate(20deg)}}
 @media(prefers-reduced-motion:reduce){.video-ended .video-end-star{animation-duration:2s}}
+
+.account-switch-button{color:#b79cff}
+.account-switch-button:hover,.account-switch-button:focus-visible{border-color:#9573df;color:#d9caff;box-shadow:0 0 12px #9a72ff55}
+.account-switch-button span{display:inline-block;animation:account-switch-spin 4s linear infinite}
+@keyframes account-switch-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.account-switch-button span{animation:none}}
