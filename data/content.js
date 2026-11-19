@@ -19,7 +19,7 @@ export const posts = [
       { id: "c141", profileId: "tozi", text: "shut you're little ass up", image: "", likes: 510000, reactions: { "😂": 300000, "💀": 130000, "👀": 80000 } },
       { id: "c142", profileId: "flipmoo", text: "AH. IGHT NO MOREE  ICE", image: "", likes: 620000, reactions: { "😂": 350000, "💀": 170000, "😭": 100000 } },
       { id: "c143", profileId: "tozi", text: "TOZI RELAX RELAX.", image: "", likes: 480000, reactions: { "😂": 260000, "🙌": 140000, "💀": 80000 } },
-      { id: "c144", profileId: "morning", text: "It loves wonderful", image: "", likes: 5900000, reactions: { "❤️": 3400000, "🥹": 1500000, "✨": 700000, "😭": 300000 } }
+      { id: "c144", profileId: "morning", text: "It looks wonderful", image: "", likes: 5900000, reactions: { "❤️": 3400000, "🥹": 1500000, "✨": 700000, "😭": 300000 } }
     ]
   },
   {
