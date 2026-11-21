@@ -2,6 +2,35 @@
 // Put newest posts first. Use an image/video path inside assets/ or memes/, or leave it blank.
 export const posts = [
   {
+    id: "p1795288136126",
+    profileId: "geekbar",
+    text: "JIP JIP SANWITCH",
+    date: "2026-11-21T20:00:00.000Z",
+    image: "memes/JIPPOST.jpeg",
+    video: "",
+    likes: 9800000000,
+    reactions: { "💀": 3400000000, "😂": 2300000000, "🔥": 1800000000, "😭": 1200000000, "😳": 1100000000 },
+    settings: { visibleComments: 20, commentsEnabled: true, reactionsEnabled: true },
+    comments: [
+      { id: "c145", profileId: "kuya", text: "WTF IS GOING ON IN COMMENTATE.", image: "", likes: 980000000, reactions: { "💀": 620000000, "😂": 240000000 } },
+      { id: "c146", profileId: "tades", text: "LOL", image: "", likes: 870000000, reactions: { "💀": 510000000, "😂": 290000000 } },
+      { id: "c147", profileId: "tozi", text: "LMAOOOOOOOO", image: "", likes: 760000000, reactions: { "😂": 440000000, "💀": 220000000 } },
+      { id: "c148", profileId: "geekbar", text: "THIS IS VAILD THOUGH?", image: "", likes: 650000000, reactions: { "💀": 380000000, "😂": 180000000 } },
+      { id: "c149", profileId: "kuya", text: "THE FUCK YOU MEAN?", image: "", likes: 840000000, reactions: { "💀": 490000000, "😂": 260000000 } },
+      { id: "c150", profileId: "geekbar", text: "I SAID. WHAT I SAID.", image: "", likes: 720000000, reactions: { "💀": 410000000, "😂": 210000000 } },
+      { id: "c151", profileId: "veil-and-vice", text: "OUYA OUYA", image: "", likes: 540000000, reactions: { "💀": 300000000, "✨": 130000000 } },
+      { id: "c152", profileId: "kuya", text: "WHA?.", image: "", likes: 610000000, reactions: { "💀": 350000000, "😂": 170000000 } },
+      { id: "c153", profileId: "veil-and-vice", text: "CAN WE PLAY THE PET GAME LATER?", image: "", likes: 690000000, reactions: { "💀": 390000000, "👀": 210000000 } },
+      { id: "c154", profileId: "kuya", text: "IDM LEMME MAKE TIME FOR IT", image: "", likes: 920000000, reactions: { "❤️": 520000000, "💀": 260000000 } },
+      { id: "c155", profileId: "veil-and-vice", text: "YAYAYAYAYAYAYAYAY", image: "", likes: 810000000, reactions: { "❤️": 460000000, "💀": 250000000 } },
+      { id: "c156", profileId: "tades", text: "IF YA'LL GONNA PLAY SHIT LET ME IN TOO", image: "", likes: 880000000, reactions: { "💀": 510000000, "😂": 260000000 } },
+      { id: "c157", profileId: "veil-and-vice", text: "WAIT LEEET ME ADD U TADES", image: "", likes: 470000000, reactions: { "👀": 280000000, "💀": 130000000 } },
+      { id: "c158", profileId: "veil-and-vice", text: "WHATS THA USER.", image: "", likes: 430000000, reactions: { "💀": 240000000, "😂": 120000000 } },
+      { id: "c159", profileId: "tades", text: "SAMEE  AS FUCKING ALWAYS NGL..", image: "", likes: 590000000, reactions: { "💀": 320000000, "😂": 180000000 } },
+      { id: "c160", profileId: "veil-and-vice", text: "GIRL.", image: "", likes: 520000000, reactions: { "💀": 300000000, "😂": 140000000 } }
+    ]
+  },
+  {
     id: "p1795064709828",
     profileId: "alex",
     text: "Recent pen sketch I made :]",

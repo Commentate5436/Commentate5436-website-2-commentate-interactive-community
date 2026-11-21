@@ -30,11 +30,12 @@ import flipMoo from "./profiles/FlipMoo.js";
 import pixkurin from "./profiles/PIXKURIN.js";
 import linneyConzi from "./profiles/LinneyConzi.js";
 import plasx from "./profiles/PLASX.js";
+import veilAndVice from "./profiles/veil-and-vice.js";
 
 
 import {posts as seedPosts, settings} from "./data/content.js";
 
-const profiles = [viewer, morning, pezpez, alex, tades, tozi, deserve, kuya, vamper, geekbar, geenaploy, onesways, noteface, lisvi, advise, grandna, xkj, lovya, noYears, pacificusAtaraxia, velvetvenom, leinberMens, morbidia, henmaside, moon, connie, sports, flipMoo, pixkurin, linneyConzi, plasx];
+const profiles = [viewer, morning, pezpez, alex, tades, tozi, deserve, kuya, vamper, geekbar, geenaploy, onesways, noteface, lisvi, advise, grandna, xkj, lovya, noYears, pacificusAtaraxia, velvetvenom, leinberMens, morbidia, henmaside, moon, connie, sports, flipMoo, pixkurin, linneyConzi, plasx, veilAndVice];
 // The music player and admin comment composer use the site owner profile.
 // viewer.js is the configured owner profile for this build.
 const owner = viewer;
