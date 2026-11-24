@@ -10,7 +10,7 @@ export default [
     members: 12451,
     following: 0,
     likes: 6,
-    reactions: [{label: "Coin", image: "reaction-image-47", count: 5674, id: "03-30-33-674_512"}]
+    reactions: [{label: "EMOJI REACTS", image: "reaction-image-47", count: 5674, id: "03-30-33-674_512"}]
   },
   {
     id: "hons-family",
