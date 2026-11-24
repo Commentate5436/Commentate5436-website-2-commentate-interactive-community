@@ -13,11 +13,15 @@ Start the local server:
 ## Easy customization
 
 ### Accounts — one file per account
-Edit `profiles/owner.js` or `profiles/morning.js`. Each file has clearly separated sections for identity, avatar, profile background, badge, music/artist details, permissions, and limits. To add an account, duplicate a profile file, edit its values, then add its import and profile entry near the top of `app.js`.
+Edit `profiles/viewer.js` or `profiles/morning.js`. Each file has clearly separated sections for identity, avatar, profile background, badge, music/artist details, permissions, and limits. To add an account, duplicate a profile file, edit its values, then add its import and profile entry near the top of `app.js`.
 
 - `profileBackground`: optional image URL or path, such as `assets/my-profile-bg.jpg`.
 - `badge` and `badgeImage`: badge text and icon shown beside the account name and on its comments. Set `badge: ""` to hide it. Set `verified: true` to show the verification image from `assets/verified.png`.
 - `musicName`: the artist / music owner label used by the music player.
+- `usernameEffect`: set `enabled: true` to animate the username through the listed color shades. It is disabled on every account by default.
+
+### Vibe color
+Edit the `name` and `color` values at the top of `vibe.js` to change the site's Vibe. The script applies it automatically when the page loads; there is no website setting or extra button. For an immediate change in the browser console, call `applyVibe("NEON BLUE", "#168bff")` with your own name and 3- or 6-digit hex color.
 
 ### Posts — each post has its own settings
 Edit `data/content.js`. Each post contains its own text, media, reactions, comments, and a `settings` section:
@@ -25,12 +29,17 @@ Edit `data/content.js`. Each post contains its own text, media, reactions, comme
 - `commentsEnabled`: set to `false` to turn comments off for that post.
 - `reactionsEnabled`: reserved per-post switch for post reactions.
 
-Each comment has its own `profileId`, text, optional image, and `reactions` object. The comment reaction chips are controlled globally by `settings.commentReactionChoices`.
+Each comment has its own `profileId`, text, optional image, and `reactions` object. Use the plus reaction buttons on posts or comments to pick a GIF or image from `reacts/`; existing reaction totals remain visible. Add new image filenames to `reacts/reactions.js` to make them selectable.
 
-Posts created in the local `npm start` preview are added to the top of `data/content.js`. New comments and emoji reactions are saved in `data/activity.json`. Commit and publish both files to include them on the public static website; the public static site cannot save new activity itself.
+Posts created in the local `npm start` preview are added to the top of `data/content.js`. New comments and reactions are saved in `data/activity.json`. Commit and publish both files to include them on the public static website; the public static site cannot save new activity itself.
+
+### Clubs
+Club names, background and profile images, verification, members, following, likes, and reaction totals are configured in `clubs/clubs.js`. The images are in `clubs png/`. Following and other large counts display in compact form (for example `890K` or `9.8B`).
+
+Feed videos include seeking, rewind, stop/reset, playback speed, and fullscreen controls.
 
 ### General feed settings
-At the bottom of `data/content.js`, change the default feed limits, admin PIN, site name, and available comment reaction emojis.
+At the bottom of `data/content.js`, change the default feed limits, admin PIN, site name, and other feed settings.
 
 ## Spectator and admin access
 - Visitors have no account and are spectators: they can view the feed and profiles but cannot post or comment.
@@ -43,7 +52,7 @@ This is a front-end prototype. The PIN and content are shipped to the browser, s
 Keep the `npm start` preview port private: its local save endpoint uses the same PIN that is visible in the site source.
 
 ## Music
-The music owner / artist name comes from `profiles/owner.js` (`musicName`). Track files and titles are listed in `app.js` in the `tracks` array.
+The music owner / artist name comes from `profiles/viewer.js` (`musicName`). Track files and titles are listed in `app.js` in the `tracks` array.
 
 Posts, new comments, and emoji reactions are saved when using `npm start`. Editing or deleting existing posts or comments, and post likes, still last only for the current browser session.
 

@@ -15,5 +15,6 @@ export default {
   canEditOwn: false,
   maxPosts: 10,
   maxComments: 10,
-  followers: 1349000
+  followers: 1349000,
+  usernameEffect: { enabled: false, colors: ["#ff3158", "#101116", "#ffffff"] }
 };

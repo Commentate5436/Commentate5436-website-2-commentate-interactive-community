@@ -5,7 +5,7 @@ export default {
   username: "Kuya",
   displayName: "POOSKI_BEAR",
   avatar: "assets/kuya.gif",
-  profileBackground: "assets/", // Optional image URL/path shown behind the profile card.
+  profileBackground: "assets/kuya background.gif", // Optional image URL/path shown behind the profile card.
   bio: "Being yourself is more Attractive than being someone you're not.",
 
   // Name badge (set badge to "" to hide it)
@@ -22,5 +22,6 @@ export default {
   canEditOwn: false,
   maxPosts: 10,
   maxComments: 10,
-  followers: 7890
+  followers: 7890,
+  usernameEffect: { enabled: true, colors: ["#b90000", "#101116", "#ffffff"] }
 };

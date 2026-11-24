@@ -27,7 +27,7 @@ export const posts = [
       { id: "c157", profileId: "veil-and-vice", text: "WAIT LEEET ME ADD U TADES", image: "", likes: 470000000, reactions: { "👀": 280000000, "💀": 130000000 } },
       { id: "c158", profileId: "veil-and-vice", text: "WHATS THA USER.", image: "", likes: 430000000, reactions: { "💀": 240000000, "😂": 120000000 } },
       { id: "c159", profileId: "tades", text: "SAMEE  AS FUCKING ALWAYS NGL..", image: "", likes: 590000000, reactions: { "💀": 320000000, "😂": 180000000 } },
-      { id: "c160", profileId: "veil-and-vice", text: "GIRL.", image: "", likes: 520000000, reactions: { "💀": 300000000, "😂": 140000000 } }
+      { id: "c160", profileId: "veil-and-vice", text: "GIRL.", image: "", likes: 520000000, reactions: { "💀": 300000000, "reaction-image-8": 140000000 } }
     ]
   },
   {
@@ -234,7 +234,7 @@ Also mind ya'll business as well. if she wanted to say anything about what that 
     reactions: { "❤️": 5200000, "👏": 2100000, "🔥": 1300000, "L Chat": 1000000 },
     settings: { visibleComments: 3, commentsEnabled: true, reactionsEnabled: true },
     comments: [
-      { id: "c52", profileId: "tades", text: "tade funking disgusting", image: "", likes: 870000, reactions: { "😳": 420000, "💀": 280000, "👏": 170000 } },
+      { id: "c52", profileId: "tades", text: "Thats funking disgusting", image: "", likes: 870000, reactions: { "😳": 420000, "💀": 280000, "👏": 170000 } },
       { id: "c53", profileId: "morning", text: "Poor girl", image: "", likes: 920000, reactions: { "❤️": 560000, "🥹": 240000, "👏": 120000 } },
       { id: "c54", profileId: "pezpez", text: "yeah nah thats werid asf", image: "", likes: 640000, reactions: { "💀": 310000, "😂": 210000, "👏": 120000 } }
     ]

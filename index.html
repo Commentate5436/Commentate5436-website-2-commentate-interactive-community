@@ -10,13 +10,16 @@
 <div class="stars" aria-hidden="true"></div>
 <header class="topbar"><a class="brand" href="#"><span class="brand-icon">C✦</span><span>COMMENTATE<small>• MADE BY: K-LOGS // DONUTHEAD // POOSKI BEAR // PIE SANDSTORM</small></span></a><div class="top-actions"><span class="live-dot">COMMUNITY ONLINE</span><button id="musicToggle" class="icon-btn" title="Show music player">♫</button><button id="openUpdates" class="icon-btn" title="What's new">✧</button><button id="adminBtn" class="admin-btn">ADMIN ACCESS</button></div></header>
 <main class="layout">
-<aside class="sidebar panel"><div class="side-label">YOUR SPACE</div><button class="nav active">◈ <span>Home feed</span></button><button class="nav" id="peopleNav">♙ <span>People</span></button><div class="side-label gap">YOUR PROFILE</div><div id="myProfileMini" class="mini-profile"></div><div class="sidebar-note">A little corner of the internet<br>to leave your mark.</div></aside>
+<aside class="sidebar panel"><div class="side-label">YOUR SPACE</div><button class="nav active" id="homeNav">◈ <span>Home feed</span></button><button class="nav" id="peopleNav">♙ <span>People</span></button><button class="nav clubs-nav" id="clubsNav"><span aria-hidden="true">✦</span><span>Clubs</span><i>VFX</i></button><div class="side-label gap">YOUR PROFILE</div><div id="myProfileMini" class="mini-profile"></div><div class="sidebar-note">A little corner of the internet<br>to leave your mark.</div></aside>
 <section class="feed-column">
+<div id="feedView">
 <div class="welcome"><div><div class="eyebrow">THE COMMUNITY FEED</div><h1>Say it <em>with feeling.</em></h1><p>Posts, thoughts, music and everything in between.</p></div><div class="welcome-orb">✦</div></div>
 <div class="feed-tools"><span><b id="postCount">0</b> posts in the feed</span><span class="sort-label">NEWEST FIRST ↓</span></div>
 <div id="feed" class="feed"></div><div id="feedGate" class="feed-gate hidden"><div class="gate-stars">✦　·　✧　　✦　·　✧</div><h2>That's the edge of the feed.</h2><p>Enter the admin pin to unlock older posts and keep exploring.</p><button id="gateUnlock" class="primary-btn">ENTER ADMIN PIN <span>→</span></button></div>
+</div>
+<div id="clubsView" class="clubs-view hidden"></div>
 </section>
-<aside class="rightbar"><div class="panel side-card"><div class="side-title">THE LITTLE DETAILS <span>✦</span></div><p>Good conversations start with one little thought.</p><div class="mini-stat"><span>POSTS</span><b id="statPosts">—</b></div><div class="mini-stat"><span>PROFILES</span><b id="statProfiles">—</b></div><div class="mini-stat"><span>VIBE</span><b>NEON RED</b></div></div><div class="panel side-card now-playing"><div class="side-title">NOW PLAYING <span>♫</span></div><div class="album-small" id="albumSmall">✦</div><b id="nowTitle">Nothing playing</b><small id="nowArtist">Choose a track below</small><button class="text-btn" id="openPlayer">OPEN MUSIC PLAYER ↗</button></div><div class="side-foot">POWERD BY: SERVER-78893.</div></aside>
+<aside class="rightbar"><div class="panel side-card"><div class="side-title">THE LITTLE DETAILS <span>✦</span></div><p>Good conversations start with one little thought.</p><div class="mini-stat"><span>POSTS</span><b id="statPosts">—</b></div><div class="mini-stat"><span>PROFILES</span><b id="statProfiles">—</b></div><div class="mini-stat"><span>VIBE</span><b id="vibeName">NEON BLUE</b></div></div><div class="panel side-card now-playing"><div class="side-title">NOW PLAYING <span>♫</span></div><div class="album-small" id="albumSmall">✦</div><b id="nowTitle">Nothing playing</b><small id="nowArtist">Choose a track below</small><button class="text-btn" id="openPlayer">OPEN MUSIC PLAYER ↗</button></div><div class="side-foot">POWERD BY: SERVER-78893.</div></aside>
 </main>
 <div id="modalRoot"></div>
 <div id="musicPlayer" class="music-player">
@@ -24,5 +27,6 @@
 <div class="player-body"><div class="album-art" id="albumArt">✦</div><div class="track-info"><b id="trackTitle">Loze gaze.</b><span id="trackArtist">Made by @MoringShedding_grey</span></div><div class="player-controls"><button id="prevTrack">|◀</button><button id="playTrack" class="play-btn">▶</button><button id="nextTrack">▶|</button></div><input id="seek" type="range" min="0" max="100" value="0"><div class="time-row"><span id="elapsed">0:00</span><span id="duration">0:00</span></div><div class="track-list" id="trackList"></div></div><div class="resize-handle"></div></div>
 <audio id="audio"></audio>
 <script>window.setTimeout(() => document.getElementById("loader")?.classList.add("done"), 6000);</script>
+<script src="vibe.js"></script>
 <script type="module" src="app.js"></script>
 </body></html>

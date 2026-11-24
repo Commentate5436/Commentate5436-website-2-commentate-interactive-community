@@ -1,5 +1,23 @@
 {
   "comments": [],
-  "postReactions": [],
-  "commentReactions": []
+  "postReactions": [
+    {
+      "postId": "p1794973862714",
+      "emoji": "reaction-image-8",
+      "count": 1
+    },
+    {
+      "postId": "p1794973862714",
+      "emoji": "reaction-image-31",
+      "count": 1
+    }
+  ],
+  "commentReactions": [
+    {
+      "postId": "p1795288136126",
+      "commentId": "c160",
+      "emoji": "reaction-image-8",
+      "count": 2
+    }
+  ]
 }

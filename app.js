@@ -34,6 +34,8 @@ import veilAndVice from "./profiles/veil-and-vice.js";
 
 
 import {posts as seedPosts, settings} from "./data/content.js";
+import {reactionImages} from "./reacts/reactions.js";
+import clubs from "./clubs/clubs.js";
 
 const profiles = [viewer, morning, pezpez, alex, tades, tozi, deserve, kuya, vamper, geekbar, geenaploy, onesways, noteface, lisvi, advise, grandna, xkj, lovya, noYears, pacificusAtaraxia, velvetvenom, leinberMens, morbidia, henmaside, moon, connie, sports, flipMoo, pixkurin, linneyConzi, plasx, veilAndVice];
 // The music player and admin comment composer use the site owner profile.
@@ -68,6 +70,18 @@ const $ = s => document.querySelector(s);
 
 const esc = s => String(s ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const profile = id => profiles.find(p=>p.id===id) || morning;
+const formatCount = value => new Intl.NumberFormat("en", {notation:"compact", maximumFractionDigits:1}).format(Number(value)||0);
+const reactionImage = key => {
+ const match=/^reaction-image-(\d+)$/.exec(key);
+ const name=match&&reactionImages[Number(match[1])];
+ return name?`reacts/${name.split("/").map(encodeURIComponent).join("/")}`:"";
+};
+function usernameLabel(person,text){
+ const effect=person.usernameEffect;
+ const colors=Array.isArray(effect?.colors)?effect.colors.filter(color=>/^#[\da-f]{3}(?:[\da-f]{3})?$/i.test(color)):[];
+ if(!effect?.enabled||colors.length<2)return esc(text);
+ return `<span class="username-effect" style="--username-shades:${colors.join(",")}">${esc(text)}</span>`;
+}
 const avatar = p => `<img class="avatar" src="${esc(p.avatar)}" alt="">`;
 const avatarLink = p => `<button class="profile-avatar-link" type="button" data-profile="${esc(p.id)}" aria-label="View ${esc(p.displayName)} profile">${avatar(p)}</button>`;
 const badge = p => p.badge || p.badgeImage || p.verified ? `<span class="badge">${p.badgeImage?`${esc(p.badgeImage)} `:""}${esc(p.badge||"")}${p.verified?' <img class="verified" src="assets/verified.png" alt="Verified" style="width:14px;height:14px;object-fit:contain;vertical-align:middle">':""}</span>` : "";
@@ -79,6 +93,10 @@ function setupPostVideos(){
   const seek=player.querySelector(".video-seek");
   const progressStar=player.querySelector(".video-progress-star");
   const time=player.querySelector(".video-time");
+  const speed=player.querySelector(".video-speed");
+  const rewind=player.querySelector(".video-rewind");
+  const stop=player.querySelector(".video-stop");
+  const fullscreen=player.querySelector(".video-fullscreen");
 
   const updateProgress=()=>{
    const percent=video.duration?video.currentTime/video.duration*100:0;
@@ -103,6 +121,18 @@ function setupPostVideos(){
   });
   seek.addEventListener("input",()=>{
    if(video.duration)video.currentTime=video.duration*Number(seek.value)/100;
+  });
+  rewind.addEventListener("click",()=>{video.currentTime=Math.max(0,video.currentTime-10)});
+  stop.addEventListener("click",()=>{video.pause();video.currentTime=0});
+  speed.addEventListener("change",()=>{video.playbackRate=Number(speed.value)});
+  fullscreen.addEventListener("click",()=>{
+   if(document.fullscreenElement){
+    document.exitFullscreen().catch(()=>toast("Fullscreen could not be closed."));
+   }else if(player.requestFullscreen){
+    player.requestFullscreen().catch(()=>toast("Fullscreen is unavailable for this video."));
+   }else{
+    toast("Fullscreen is not supported in this browser.");
+   }
   });
   video.addEventListener("play",()=>{
    window.clearTimeout(Number(player.dataset.endEffectTimer));
@@ -130,16 +160,16 @@ function render(){
  $("#postCount").textContent=posts.length;$("#statPosts").textContent=posts.length;$("#statProfiles").textContent=profiles.length;
  feed.innerHTML=shown.map(post=>{
   const p=profile(post.profileId);
-  const media=post.image?`<img class="post-media" src="${esc(post.image)}">`:post.video?`<div class="post-video-player"><video class="post-media" src="${esc(post.video)}" playsinline preload="metadata"></video><div class="video-controls"><button class="video-play-toggle" type="button" aria-label="Play video" aria-pressed="false">▶</button><div class="video-progress"><input class="video-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek video"><span class="video-progress-star" aria-hidden="true">★</span></div><span class="video-time">0:00 / 0:00</span></div><div class="video-end-star" aria-hidden="true">✦</div></div>`:"";
+  const media=post.image?`<img class="post-media" src="${esc(post.image)}">`:post.video?`<div class="post-video-player"><video class="post-media" src="${esc(post.video)}" playsinline preload="metadata"></video><div class="video-controls"><button class="video-play-toggle" type="button" aria-label="Play video" aria-pressed="false">▶</button><div class="video-progress"><input class="video-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek video"><span class="video-progress-star" aria-hidden="true">★</span></div><span class="video-time">0:00 / 0:00</span><button class="video-tool video-rewind" type="button" title="Rewind 10 seconds" aria-label="Rewind 10 seconds">↶10</button><button class="video-tool video-stop" type="button" title="Stop and reset video" aria-label="Stop and reset video">■</button><label class="video-speed-label">SPEED<select class="video-speed" aria-label="Playback speed"><option value="0.5">0.5×</option><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></label><button class="video-tool video-fullscreen" type="button" title="Toggle fullscreen" aria-label="Toggle fullscreen">⛶</button></div><div class="video-end-star" aria-hidden="true">✦</div></div>`:"";
   const postSettings={visibleComments:settings.initialVisibleComments,commentsEnabled:true,reactionsEnabled:true,...(post.settings||{})};
   const allComments=post.comments||[];
   const commentLimit=admin?10:postSettings.visibleComments;
   const comments=allComments.slice(Math.max(0,allComments.length-commentLimit));
-  return `<article class="post" data-post="${esc(post.id)}"><div class="post-head">${avatarLink(p)}<div class="post-user"><button class="post-profile-link" type="button" data-profile="${esc(p.id)}"><b>${esc(p.displayName)}</b>${badge(p)}<small>@${esc(p.username)} · ${timeAgo(post.date)}</small></button></div><button class="post-menu" data-edit-post="${esc(post.id)}" title="Edit post">···</button></div>
+  return `<article class="post" data-post="${esc(post.id)}"><div class="post-head">${avatarLink(p)}<div class="post-user"><button class="post-profile-link" type="button" data-profile="${esc(p.id)}"><b>${usernameLabel(p,p.displayName)}</b>${badge(p)}<small>@${usernameLabel(p,p.username)} · ${timeAgo(post.date)}</small></button></div><button class="post-menu" data-edit-post="${esc(post.id)}" title="Edit post">···</button></div>
   <div class="post-text">${esc(post.text).replace(/\n/g,"<br>")}</div>${media}
-  <div class="post-actions"><button class="action ${post.liked?'liked':''}" data-like="${esc(post.id)}">♥ ${post.likes||0} likes</button><button class="action" data-focus="${esc(post.id)}">↩ ${(post.comments||[]).length} comments</button>${postSettings.reactionsEnabled?`<button class="action" data-react="${esc(post.id)}">＋ react</button>`:""}${admin?`<button class="action" data-delete="${esc(post.id)}">delete</button>`:""}</div>
-  <div class="reactions">${postSettings.reactionsEnabled?Object.entries(post.reactions||{}).map(([e,n])=>`<button class="react" data-react-existing="${esc(post.id)}|${esc(e)}">${e} ${n}</button>`).join(""):""}</div>
-  <div class="comments">${comments.map(c=>{let cp=profile(c.profileId);return `<div class="comment">${avatarLink(cp)}<div class="comment-content"><button class="comment-profile-link" type="button" data-profile="${esc(cp.id)}"><b>${esc(cp.username)}</b>${badge(cp)}</button>${esc(c.text)}${c.image?`<img class="comment-image" src="${esc(c.image)}">`:""}<div class="comment-actions">${settings.commentReactionChoices.map(emoji=>`<button class="comment-react" data-comment-react="${esc(post.id)}|${esc(c.id)}|${emoji}" title="React ${emoji}">${emoji}</button>`).join("")}${Object.entries(c.reactions||{}).map(([emoji,count])=>`<button class="comment-react-count" data-comment-react="${esc(post.id)}|${esc(c.id)}|${esc(emoji)}">${emoji} ${count}</button>`).join("")}${admin?`<button class="comment-edit" data-edit-comment="${esc(post.id)}|${esc(c.id)}">edit</button><button class="comment-edit" data-delete-comment="${esc(post.id)}|${esc(c.id)}">delete</button>`:""}</div></div></div>`}).join("")}
+  <div class="post-actions"><button class="action ${post.liked?'liked':''}" data-like="${esc(post.id)}">♥ ${post.likes||0} likes</button><button class="action" data-focus="${esc(post.id)}">↩ ${(post.comments||[]).length} comments</button>${postSettings.reactionsEnabled?`<button class="action react-picker-trigger" data-react="${esc(post.id)}" aria-label="Choose a reaction">＋ <span>react</span></button>`:""}${admin?`<button class="action" data-delete="${esc(post.id)}">delete</button>`:""}</div>
+  <div class="reactions">${postSettings.reactionsEnabled?Object.entries(post.reactions||{}).map(([e,n])=>{const image=reactionImage(e);return `<button class="react" data-react-existing="${esc(post.id)}|${esc(e)}" aria-label="React with ${image?"image":"emoji"} ${esc(e)}">${image?`<img src="${esc(image)}" alt="">`:`<span>${esc(e)}</span>`}<b>${n}</b></button>`}).join(""):""}</div>
+  <div class="comments">${comments.map(c=>{let cp=profile(c.profileId);return `<div class="comment">${avatarLink(cp)}<div class="comment-content"><button class="comment-profile-link" type="button" data-profile="${esc(cp.id)}"><b>${usernameLabel(cp,cp.username)}</b>${badge(cp)}</button>${esc(c.text)}${c.image?`<img class="comment-image" src="${esc(c.image)}">`:""}<div class="comment-actions"><button class="comment-react-picker" type="button" data-comment-react-picker="${esc(post.id)}|${esc(c.id)}" aria-label="Choose a reaction" title="Choose a reaction">＋</button>${Object.entries(c.reactions||{}).map(([emoji,count])=>{const image=reactionImage(emoji);return `<button class="comment-react-count" data-comment-react="${esc(post.id)}|${esc(c.id)}|${esc(emoji)}" aria-label="React with ${image?"image":"emoji"} ${esc(emoji)}">${image?`<img src="${esc(image)}" alt="">`:`<span>${esc(emoji)}</span>`}<b>${count}</b></button>`}).join("")}${admin?`<button class="comment-edit" data-edit-comment="${esc(post.id)}|${esc(c.id)}">edit</button><button class="comment-edit" data-delete-comment="${esc(post.id)}|${esc(c.id)}">delete</button>`:""}</div></div></div>`}).join("")}
   ${!postSettings.commentsEnabled?`<div class="comment-compose"><input placeholder="Comments are turned off for this post" disabled></div>`:admin?`<div class="comment-compose"><input id="comment-${esc(post.id)}" placeholder="Write a comment as @${esc(profile(activeProfileId).username)}…"><button class="tiny-send" data-comment="${esc(post.id)}">SEND</button></div>`:`<div class="comment-compose"><input placeholder="Spectator view · comments are read-only" disabled></div>`}
   </div></article>`;
  }).join("");
@@ -357,9 +387,52 @@ async function addReaction(postId,emoji,commentId=""){
  render();
  if(!persistentActivityStorageAvailable)toast("Reaction added for this session only.");
 }
-function profileModal(id){let p=profile(id);modal(`<div class="profile-hero" ${p.profileBackground?`style="background-image:linear-gradient(#100d14bb,#100d14dd),url('${esc(p.profileBackground)}');background-size:cover;background-position:center;padding:14px;border-radius:12px"`:""}>${avatar(p)}<div><h2>${esc(p.displayName)}</h2><p>@${esc(p.username)} ${badge(p)}</p></div></div>`,`<p>${esc(p.bio)}</p><div class="profile-stats"><span><b>${p.followers}</b> FOLLOWERS</span><span><b>${posts.filter(x=>x.profileId===p.id).length}</b> POSTS</span><span><b>${p.artist?"ARTIST":"MEMBER"}</b></span></div><p>${p.artist?`♫ ${esc(p.musicName)}`:"Not listed as an artist."}</p><p>Profile ID: <code>${esc(p.id)}</code></p>`,`<div class="modal-actions"><button class="secondary-btn" id="copyProfile">COPY PROFILE ID</button><button class="primary-btn" id="closeProfile">CLOSE</button></div>`);$("#closeProfile").onclick=closeModal;$("#copyProfile").onclick=()=>{navigator.clipboard?.writeText(p.id);toast("Profile ID copied.")};}
+function openReactionPicker(postId,commentId=""){
+ const choices=reactionImages.map((name,index)=>{
+  const src=`reacts/${name.split("/").map(encodeURIComponent).join("/")}`;
+  return `<button class="reaction-choice" type="button" data-reaction-index="${index}" aria-label="Choose reaction ${index+1}"><img src="${esc(src)}" alt="Reaction ${index+1}"></button>`;
+ }).join("");
+ modal("CHOOSE A REACTION",`<p>Pick an image or GIF reaction.</p><div class="reaction-picker-grid" id="reactionPickerGrid">${choices}</div>`,`<div class="modal-actions"><button class="secondary-btn" id="cancelReaction">CANCEL</button></div>`);
+ $("#cancelReaction").onclick=closeModal;
+ $("#reactionPickerGrid").addEventListener("click",event=>{
+  const choice=event.target.closest("[data-reaction-index]");
+  if(!choice)return;
+  const reaction=`reaction-image-${choice.dataset.reactionIndex}`;
+  closeModal();
+  void addReaction(postId,reaction,commentId);
+ });
+}
+function renderClubs(){
+ $("#clubsView").innerHTML=`
+  <div class="clubs-heading"><div><div class="eyebrow">YOUR COMMUNITY, YOUR CREW</div><h1>Find your <em>club.</em></h1><p>Verified spaces made by the people who make Commentate feel like home.</p></div><span class="clubs-heading-mark" aria-hidden="true">✦</span></div>
+  <div class="clubs-grid">${clubs.map(club=>`
+   <button class="club-card" type="button" data-club="${esc(club.id)}" style="--club-bg:url(&quot;${esc(club.background)}&quot;)">
+    <span class="club-cover"></span><span class="club-card-content"><img class="club-avatar" src="${esc(club.avatar)}" alt=""><span class="club-copy"><b>${esc(club.name)}${club.verified?` <img class="club-verified" src="assets/verified.png" alt="Verified">`:""}</b><small>${formatCount(club.members)} members · ${formatCount(club.following)} following</small></span><span class="club-open" aria-hidden="true">↗</span></span>
+    <span class="club-card-stats"><span>♥ ${formatCount(club.likes)} likes</span><span>✦ ${formatCount(club.reactions.reduce((total,reaction)=>total+(Number(reaction.count)||0),0))} reactions</span></span>
+   </button>`).join("")}</div>`;
+}
+function showView(view){
+ const clubsOpen=view==="clubs";
+ $("#feedView").classList.toggle("hidden",clubsOpen);
+ $("#clubsView").classList.toggle("hidden",!clubsOpen);
+ $("#homeNav").classList.toggle("active",!clubsOpen);
+ $("#clubsNav").classList.toggle("active",clubsOpen);
+}
+function clubModal(id){
+ const club=clubs.find(item=>item.id===id);
+ if(!club)return;
+ const reactions=club.reactions.length
+  ?club.reactions.map(reaction=>{const image=reaction.image&&reactionImage(reaction.image);return `<span class="club-reaction-stat">${image?`<img src="${esc(image)}" alt="${esc(reaction.label)}">`:esc(reaction.label)} <b>${formatCount(reaction.count)}</b></span>`}).join("")
+  :`<span class="club-no-reactions">No reactions yet</span>`;
+ modal(`<div class="club-modal-hero" style="--club-bg:url(&quot;${esc(club.background)}&quot;)"><img src="${esc(club.avatar)}" alt=""><div><h2>${esc(club.name)}${club.verified?` <img class="club-verified" src="assets/verified.png" alt="Verified">`:""}</h2><p>Verified Commentate club</p></div></div>`,
+  `<div class="club-detail-stats"><div><b>${formatCount(club.members)}</b><span>MEMBERS</span></div><div><b>${formatCount(club.following)}</b><span>FOLLOWING</span></div><div><b>${formatCount(club.likes)}</b><span>LIKES</span></div></div><h3 class="club-detail-heading">REACTIONS</h3><div class="club-reaction-stats">${reactions}</div><p>Edit this club's members, following, likes, and reactions in <code>clubs/clubs.js</code>.</p>`,
+  `<div class="modal-actions"><button class="primary-btn" id="closeProfile">CLOSE</button></div>`);
+ $("#closeProfile").onclick=closeModal;
+}
+function profileModal(id){let p=profile(id);modal(`<div class="profile-hero" ${p.profileBackground?`style="background-image:linear-gradient(#100d14bb,#100d14dd),url('${esc(p.profileBackground)}');background-size:cover;background-position:center;padding:14px;border-radius:12px"`:""}>${avatar(p)}<div><h2>${usernameLabel(p,p.displayName)}</h2><p>@${usernameLabel(p,p.username)} ${badge(p)}</p></div></div>`,`<p>${esc(p.bio)}</p><div class="profile-stats"><span><b>${formatCount(p.followers)}</b> FOLLOWERS</span><span><b>${posts.filter(x=>x.profileId===p.id).length}</b> POSTS</span><span><b>${p.artist?"ARTIST":"MEMBER"}</b></span></div><p>${p.artist?`♫ ${esc(p.musicName)}`:"Not listed as an artist."}</p><p>Profile ID: <code>${esc(p.id)}</code></p>`,`<div class="modal-actions"><button class="secondary-btn" id="copyProfile">COPY PROFILE ID</button><button class="primary-btn" id="closeProfile">CLOSE</button></div>`);$("#closeProfile").onclick=closeModal;$("#copyProfile").onclick=()=>{navigator.clipboard?.writeText(p.id);toast("Profile ID copied.")};}
 $("#adminBtn").onclick=askPin;$("#gateUnlock").onclick=askPin;$("#openUpdates").onclick=()=>modal("WHAT'S NEW — COMMENTATE",`<p><b>01 / The feed is alive.</b><br>Newest posts appear first. The public view starts with two posts.</p><p><b>02 / Community profiles.</b><br>Tap a username or avatar to open a profile card.</p><p><b>03 / Admin controls.</b><br>Use the admin key to unlock older posts, create posts and add comments.</p><p><b>04 / Music corner.</b><br>Drag the player by its title bar and resize from the bottom-right corner.</p>`,`<div class="modal-actions"><button class="primary-btn" id="closeProfile">LET'S GO</button></div>`);$("#modalRoot").addEventListener("click",e=>{if(e.target.id==="closeProfile")closeModal()});
 $("#peopleNav").onclick = () => {
+  showView("feed");
   // Set peopleRequiresAdmin to true/false in data/content.js.
   if (settings.peopleRequiresAdmin && !admin) {
     askPin();
@@ -385,11 +458,18 @@ $("#peopleNav").onclick = () => {
 
   $("#closeProfile").onclick = closeModal;
 };
+$("#clubsNav").onclick=()=>{
+ showView("clubs");
+ renderClubs();
+};
+$("#homeNav").onclick=()=>showView("feed");
 
 document.body.addEventListener("click",e=>{
  let el=e.target.closest("[data-profile]");if(el){profileModal(el.dataset.profile);return}
+ el=e.target.closest("[data-club]");if(el){clubModal(el.dataset.club);return}
  el=e.target.closest("[data-like]");if(el){let p=posts.find(x=>x.id===el.dataset.like);p.liked=!p.liked;p.likes=Math.max(0,(p.likes||0)+(p.liked?1:-1));render();return}
- el=e.target.closest("[data-react]");if(el){let id=el.dataset.react;let emoji=prompt("Type one emoji to react with:","✨");if(emoji?.trim())void addReaction(id,emoji.trim());return}
+ el=e.target.closest("[data-react]");if(el){openReactionPicker(el.dataset.react);return}
+ el=e.target.closest("[data-comment-react-picker]");if(el){let [pid,cid]=el.dataset.commentReactPicker.split("|");openReactionPicker(pid,cid);return}
  el=e.target.closest("[data-react-existing]");if(el){let [id,emoji]=el.dataset.reactExisting.split("|");void addReaction(id,emoji);return}
  el=e.target.closest("[data-comment-react]");if(el){let [pid,cid,emoji]=el.dataset.commentReact.split("|");void addReaction(pid,emoji,cid);return}
  el=e.target.closest("[data-comment]");if(el){commentEditor(el.dataset.comment);return}
