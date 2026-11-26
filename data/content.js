@@ -15,7 +15,7 @@ export const posts = [
     video: "",
     likes: 4000000 ,
     reactions: { "Shame.webp": 3400000000, },
-    settings: { visibleComments: 1, commentsEnabled: true, reactionsEnabled: true },
+    settings: { visibleComments: 5, commentsEnabled: true, reactionsEnabled: true },
     comments: [
       { profileId: "tades", text: "HOLY SHIT. that fucking part where you nearly died form  being out of the map. Holy shit dude", image: "", likes: 548, reactions: { "soopmoji.webp": 230985 } },
       { profileId: "flipmoo", text: "I bet that nigga was sweating his ASSCHEEKS fighting the guy wtf", image: "", likes: 0, reactions: {} },
