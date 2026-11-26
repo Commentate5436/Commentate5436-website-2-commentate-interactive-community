@@ -17,11 +17,11 @@ export const posts = [
     reactions: { "Shame.webp": 3400000000, },
     settings: { visibleComments: 1, commentsEnabled: true, reactionsEnabled: true },
     comments: [
-      { id: "c334", profileId: "tades", text: "HOLY SHIT. that fucking part where you nearly died form  being out of the map. Holy shit dude", image: "", likes: 548, reactions: { "soopmoji.webp": 230985 } },
-      { id: "c335", profileId: "flipmoo", text: "I bet that nigga was sweating his ASSCHEEKS fighting the guy wtf", image: "", likes: 0, reactions: {} },
-      { id: "c336", profileId: "geekbar", text: "HE PROB WAS THOUGH?  HOLY FUCK", image: "", likes: 0, reactions: {} },
-      { id: "c337", profileId: "pezpez", text: "I owe this men 80$.....", image: "memes/8d7333cefb4a4579bba6465189bb55cd~tplv-f2jg4exsff-full.webp", likes: 0, reactions: {} },
-      {id: "c338", profileId: "tades", text: "LOLLLLL", image: "", likes: 321, reactions: { } }
+      { profileId: "tades", text: "HOLY SHIT. that fucking part where you nearly died form  being out of the map. Holy shit dude", image: "", likes: 548, reactions: { "soopmoji.webp": 230985 } },
+      { profileId: "flipmoo", text: "I bet that nigga was sweating his ASSCHEEKS fighting the guy wtf", image: "", likes: 0, reactions: {} },
+      { profileId: "geekbar", text: "HE PROB WAS THOUGH?  HOLY FUCK", image: "", likes: 0, reactions: {} },
+      { profileId: "pezpez", text: "I owe this men 80$.....", image: "memes/8d7333cefb4a4579bba6465189bb55cd~tplv-f2jg4exsff-full.webp", likes: 0, reactions: {} },
+      { profileId: "tades", text: "LOLLLLL", image: "", likes: 321, reactions: {} }
     ]
   },
   {
@@ -35,22 +35,22 @@ export const posts = [
     reactions: { "💀": 3400000000, "😂": 2300000000, "🔥": 1800000000, "😭": 1200000000, "😳": 1100000000 },
     settings: { visibleComments: 20, commentsEnabled: true, reactionsEnabled: true },
     comments: [
-      { id: "c145", profileId: "kuya", text: "WTF IS GOING ON IN COMMENTATE.", image: "", likes: 980000000, reactions: { "💀": 620000000, "😂": 240000000 } },
-      { id: "c146", profileId: "tades", text: "LOL", image: "", likes: 870000000, reactions: { "💀": 510000000, "😂": 290000000 } },
-      { id: "c147", profileId: "tozi", text: "LMAOOOOOOOO", image: "", likes: 760000000, reactions: { "😂": 440000000, "💀": 220000000 } },
-      { id: "c148", profileId: "geekbar", text: "THIS IS VAILD THOUGH?", image: "", likes: 650000000, reactions: { "💀": 380000000, "😂": 180000000 } },
-      { id: "c149", profileId: "kuya", text: "THE FUCK YOU MEAN?", image: "", likes: 840000000, reactions: { "💀": 490000000, "😂": 260000000 } },
-      { id: "c150", profileId: "geekbar", text: "I SAID. WHAT I SAID.", image: "", likes: 720000000, reactions: { "💀": 410000000, "😂": 210000000 } },
-      { id: "c151", profileId: "veil-and-vice", text: "OUYA OUYA", image: "", likes: 540000000, reactions: { "💀": 300000000, "✨": 130000000 } },
-      { id: "c152", profileId: "kuya", text: "WHA?.", image: "", likes: 610000000, reactions: { "💀": 350000000, "😂": 170000000 } },
-      { id: "c153", profileId: "veil-and-vice", text: "CAN WE PLAY THE PET GAME LATER?", image: "", likes: 690000000, reactions: { "💀": 390000000, "👀": 210000000 } },
-      { id: "c154", profileId: "kuya", text: "IDM LEMME MAKE TIME FOR IT", image: "", likes: 920000000, reactions: { "❤️": 520000000, "💀": 260000000 } },
-      { id: "c155", profileId: "veil-and-vice", text: "YAYAYAYAYAYAYAYAY", image: "", likes: 810000000, reactions: { "❤️": 460000000, "💀": 250000000 } },
-      { id: "c156", profileId: "tades", text: "IF YA'LL GONNA PLAY SHIT LET ME IN TOO", image: "", likes: 880000000, reactions: { "💀": 510000000, "😂": 260000000 } },
-      { id: "c157", profileId: "veil-and-vice", text: "WAIT LEEET ME ADD U TADES", image: "", likes: 470000000, reactions: { "👀": 280000000, "💀": 130000000 } },
-      { id: "c158", profileId: "veil-and-vice", text: "WHATS THA USER.", image: "", likes: 430000000, reactions: { "💀": 240000000, "😂": 120000000 } },
-      { id: "c159", profileId: "tades", text: "SAMEE  AS FUCKING ALWAYS NGL..", image: "", likes: 590000000, reactions: { "💀": 320000000, "😂": 180000000 } },
-      { id: "c160", profileId: "veil-and-vice", text: "GIRL.", image: "", likes: 520000000, reactions: { "💀": 300000000, "Emote56.jpg": 140000000 } }
+      { profileId: "kuya", text: "WTF IS GOING ON IN COMMENTATE.", image: "", likes: 980000000, reactions: { "💀": 620000000, "😂": 240000000 } },
+      { profileId: "tades", text: "LOL", image: "", likes: 870000000, reactions: { "💀": 510000000, "😂": 290000000 } },
+      { profileId: "tozi", text: "LMAOOOOOOOO", image: "", likes: 760000000, reactions: { "😂": 440000000, "💀": 220000000 } },
+      { profileId: "geekbar", text: "THIS IS VAILD THOUGH?", image: "", likes: 650000000, reactions: { "💀": 380000000, "😂": 180000000 } },
+      { profileId: "kuya", text: "THE FUCK YOU MEAN?", image: "", likes: 840000000, reactions: { "💀": 490000000, "😂": 260000000 } },
+      { profileId: "geekbar", text: "I SAID. WHAT I SAID.", image: "", likes: 720000000, reactions: { "💀": 410000000, "😂": 210000000 } },
+      { profileId: "veil-and-vice", text: "OUYA OUYA", image: "", likes: 540000000, reactions: { "💀": 300000000, "✨": 130000000 } },
+      { profileId: "kuya", text: "WHA?.", image: "", likes: 610000000, reactions: { "💀": 350000000, "😂": 170000000 } },
+      { profileId: "veil-and-vice", text: "CAN WE PLAY THE PET GAME LATER?", image: "", likes: 690000000, reactions: { "💀": 390000000, "👀": 210000000 } },
+      { profileId: "kuya", text: "IDM LEMME MAKE TIME FOR IT", image: "", likes: 920000000, reactions: { "❤️": 520000000, "💀": 260000000 } },
+      { profileId: "veil-and-vice", text: "YAYAYAYAYAYAYAYAY", image: "", likes: 810000000, reactions: { "❤️": 460000000, "💀": 250000000 } },
+      { profileId: "tades", text: "IF YA'LL GONNA PLAY SHIT LET ME IN TOO", image: "", likes: 880000000, reactions: { "💀": 510000000, "😂": 260000000 } },
+      { profileId: "veil-and-vice", text: "WAIT LEEET ME ADD U TADES", image: "", likes: 470000000, reactions: { "👀": 280000000, "💀": 130000000 } },
+      { profileId: "veil-and-vice", text: "WHATS THA USER.", image: "", likes: 430000000, reactions: { "💀": 240000000, "😂": 120000000 } },
+      { profileId: "tades", text: "SAMEE  AS FUCKING ALWAYS NGL..", image: "", likes: 590000000, reactions: { "💀": 320000000, "😂": 180000000 } },
+      { profileId: "veil-and-vice", text: "GIRL.", image: "", likes: 520000000, reactions: { "💀": 300000000, "Emote56.jpg": 140000000 } }
     ]
   },
   {
@@ -354,6 +354,12 @@ You can view the people who's Online: Simpley click on people right Under home f
     ]
   }
 ];
+
+for (const post of posts) {
+  post.comments?.forEach((comment, index) => {
+    comment.id ??= `${post.id}-comment-${index + 1}`;
+  });
+}
 
 export const settings = {
   initialVisiblePosts: 9,
