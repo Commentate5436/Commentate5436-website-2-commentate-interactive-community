@@ -64,3 +64,18 @@ Visitors who already have Commentate open are checked every 60 seconds and see
 the blue-and-white update notice when the version changes. They can click
 **REFRESH WEBSITE** to load the newest version. The website never forces a
 refresh without their consent.
+
+ {
+    id: "p1795288136126",
+    profileId: "geekbar",
+    text: "JIP JIP SANWITCH",
+    date: "2026-11-21T20:00:00.000Z",
+    image: "memes/JIPPOST.jpeg",
+    video: "",
+    likes: 9800000000,
+    reactions: { "💀": 3400000000, "😂": 2300000000, "🔥": 1800000000, "😭": 1200000000, "😳": 1100000000 },
+    settings: { visibleComments: 20, commentsEnabled: true, reactionsEnabled: true },
+    comments: [
+      { id: "c145", profileId: "kuya", text: "WTF IS GOING ON IN COMMENTATE.", image: "", likes: 980000000, reactions: { "💀": 620000000, "😂": 240000000 } },
+    ]
+  },
