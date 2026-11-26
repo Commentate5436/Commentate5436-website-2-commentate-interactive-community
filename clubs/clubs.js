@@ -10,7 +10,7 @@ export default [
     members: 12451,
     following: 0,
     likes: 6,
-    reactions: [{label: "EMOJI REACTS", image: "reaction-image-47", count: 5674, id: "03-30-33-674_512"}]
+    reactions: [{image: "03-30-33-674_512.gif", count: 5674}]
   },
   {
     id: "hons-family",
@@ -54,7 +54,7 @@ export default [
     members: 162300000,
     following: 5,
     likes: 1000000000,
-    reactions: [{label: "Yes Mommy", image: "reaction-image-45", count:50000000, id: "yesmommey"}]
+    reactions: [{image: "yesmommy.webp", count: 50000000}]
   },
   {
     id: "knot-and-honey",
@@ -65,6 +65,6 @@ export default [
     members: 100567,
     following: 8986,
     likes: 10000000,
-    reactions: [{label: "fuggie", image: "reaction-image-32", count:50000000000000, id: "fuggie"}]
+    reactions: [{image: "fuggie.webp", count: 50000000000000}]
   }
 ];

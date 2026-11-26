@@ -228,7 +228,7 @@ async function handleActivityApi(request, response) {
       const emoji = typeof value.emoji === "string" ? value.emoji.trim() : "";
       const post = knownPost(postId);
       if (!post || (target !== "post" && target !== "comment")
-        || !emoji || emoji.length > 32 || emoji.includes("|")
+        || !emoji || emoji.length > 255 || emoji.includes("|")
         || (target === "comment" && !commentId)) {
         sendJson(response, 400, { error: "The reaction details are invalid." });
         return true;

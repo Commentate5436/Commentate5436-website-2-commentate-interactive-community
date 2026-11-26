@@ -73,7 +73,7 @@ const profile = id => profiles.find(p=>p.id===id) || morning;
 const formatCount = value => new Intl.NumberFormat("en", {notation:"compact", maximumFractionDigits:1}).format(Number(value)||0);
 const reactionImage = key => {
  const match=/^reaction-image-(\d+)$/.exec(key);
- const name=match&&reactionImages[Number(match[1])];
+ const name=match?reactionImages[Number(match[1])]:reactionImages.includes(key)?key:"";
  return name?`reacts/${name.split("/").map(encodeURIComponent).join("/")}`:"";
 };
 function usernameLabel(person,text){
@@ -369,8 +369,8 @@ async function commentEditor(postId){
  toast(persistentActivityStorageAvailable?`Comment saved as @${profile(activeProfileId).username}.`:`Comment added as @${profile(activeProfileId).username} for this session only.`);
 }
 async function addReaction(postId,emoji,commentId=""){
- if(typeof emoji!=="string"||!emoji.trim()||emoji.trim().length>32||emoji.includes("|")){
-  return toast("Use a short reaction without the | character.");
+ if(typeof emoji!=="string"||!emoji.trim()||emoji.trim().length>255||emoji.includes("|")){
+  return toast("Reaction must be 255 characters or fewer and cannot contain |.");
  }
  emoji=emoji.trim();
  const post=posts.find(item=>item.id===postId);
@@ -388,16 +388,16 @@ async function addReaction(postId,emoji,commentId=""){
  if(!persistentActivityStorageAvailable)toast("Reaction added for this session only.");
 }
 function openReactionPicker(postId,commentId=""){
- const choices=reactionImages.map((name,index)=>{
+ const choices=reactionImages.map(name=>{
   const src=`reacts/${name.split("/").map(encodeURIComponent).join("/")}`;
-  return `<button class="reaction-choice" type="button" data-reaction-index="${index}" aria-label="Choose reaction ${index+1}"><img src="${esc(src)}" alt="Reaction ${index+1}"></button>`;
+  return `<button class="reaction-choice" type="button" data-reaction-image="${esc(name)}" aria-label="Choose ${esc(name)}"><img src="${esc(src)}" alt="${esc(name)}"></button>`;
  }).join("");
  modal("CHOOSE A REACTION",`<p>Pick an image or GIF reaction.</p><div class="reaction-picker-grid" id="reactionPickerGrid">${choices}</div>`,`<div class="modal-actions"><button class="secondary-btn" id="cancelReaction">CANCEL</button></div>`);
  $("#cancelReaction").onclick=closeModal;
  $("#reactionPickerGrid").addEventListener("click",event=>{
-  const choice=event.target.closest("[data-reaction-index]");
+  const choice=event.target.closest("[data-reaction-image]");
   if(!choice)return;
-  const reaction=`reaction-image-${choice.dataset.reactionIndex}`;
+  const reaction=choice.dataset.reactionImage;
   closeModal();
   void addReaction(postId,reaction,commentId);
  });
@@ -422,7 +422,7 @@ function clubModal(id){
  const club=clubs.find(item=>item.id===id);
  if(!club)return;
  const reactions=club.reactions.length
-  ?club.reactions.map(reaction=>{const image=reaction.image&&reactionImage(reaction.image);return `<span class="club-reaction-stat">${image?`<img src="${esc(image)}" alt="${esc(reaction.label)}">`:esc(reaction.label)} <b>${formatCount(reaction.count)}</b></span>`}).join("")
+  ?club.reactions.map(reaction=>{const image=reaction.image&&reactionImage(reaction.image);const label=reaction.label||reaction.image||"Reaction";return `<span class="club-reaction-stat">${image?`<img src="${esc(image)}" alt="${esc(label)}">`:esc(label)} <b>${formatCount(reaction.count)}</b></span>`}).join("")
   :`<span class="club-no-reactions">No reactions yet</span>`;
  modal(`<div class="club-modal-hero" style="--club-bg:url(&quot;${esc(club.background)}&quot;)"><img src="${esc(club.avatar)}" alt=""><div><h2>${esc(club.name)}${club.verified?` <img class="club-verified" src="assets/verified.png" alt="Verified">`:""}</h2><p>Verified Commentate club</p></div></div>`,
   `<div class="club-detail-stats"><div><b>${formatCount(club.members)}</b><span>MEMBERS</span></div><div><b>${formatCount(club.following)}</b><span>FOLLOWING</span></div><div><b>${formatCount(club.likes)}</b><span>LIKES</span></div></div><h3 class="club-detail-heading">REACTIONS</h3><div class="club-reaction-stats">${reactions}</div><p>Edit this club's members, following, likes, and reactions in <code>clubs/clubs.js</code>.</p>`,

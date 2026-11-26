@@ -27,7 +27,7 @@ export const posts = [
       { id: "c157", profileId: "veil-and-vice", text: "WAIT LEEET ME ADD U TADES", image: "", likes: 470000000, reactions: { "👀": 280000000, "💀": 130000000 } },
       { id: "c158", profileId: "veil-and-vice", text: "WHATS THA USER.", image: "", likes: 430000000, reactions: { "💀": 240000000, "😂": 120000000 } },
       { id: "c159", profileId: "tades", text: "SAMEE  AS FUCKING ALWAYS NGL..", image: "", likes: 590000000, reactions: { "💀": 320000000, "😂": 180000000 } },
-      { id: "c160", profileId: "veil-and-vice", text: "GIRL.", image: "", likes: 520000000, reactions: { "💀": 300000000, "reaction-image-8": 140000000 } }
+      { id: "c160", profileId: "veil-and-vice", text: "GIRL.", image: "", likes: 520000000, reactions: { "💀": 300000000, "Emote56.jpg": 140000000 } }
     ]
   },
   {
