@@ -9,9 +9,9 @@ export const posts = [
     Let me tell you why
     recently My brother which i wont say his name won agsint me in brawlhalla Dispite me saying GG's ETC. I was pissed that i lost
     So i worked my ass off day and night and each time i fought my ass with brutal with it I didnt care if i lost if i could turn that simple  lose into a win the next it didnt matter
-    So my mental was fucked in the ass or weeks to make this stressfull ass clip of my ass today.`,
+    So my mental was fucked in the ass or weeks to make this stressfull ass Picture of my ass today.`,
     date: "2026-11-05T20:39:42",
-    image: "",
+    image: "memes/Screenshot 2026-11-25 154802.png",
     video: "",
     likes: 4000000 ,
     reactions: { "Shame.webp": 3400000000, },
