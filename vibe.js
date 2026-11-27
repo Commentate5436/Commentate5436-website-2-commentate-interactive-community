@@ -1,7 +1,7 @@
 (() => {
   const defaultVibe = {
-    name: "NEON BLUE",
-    color: "#168bff"
+    name: "FESTIVAL EVENT",
+    color: "#ff5100"
   };
 
   function applyVibe(name = defaultVibe.name, color = defaultVibe.color) {
